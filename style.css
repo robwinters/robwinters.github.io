@@ -1,0 +1,409 @@
+/* ============================================================
+   Design tokens
+   ============================================================ */
+
+:root {
+    --color-bg:             #fffefa;
+    --color-text:           #1e1e1e;
+    --color-secondary:      #696969;
+    --color-section-label:  #737373;
+    --color-accent:         #4eb41f;
+    --color-link:           #0095ff;
+    --color-text-muted:     #4a4a4a;
+    --color-greeting:       #929292;
+
+    --font:                 'Inter', sans-serif;
+
+    --size-name:            39px;
+    --size-greeting:        38px;
+    --size-intro-para:      24px;
+    --size-body:            18px;
+    --size-date:            18px;
+    --size-section-label:   22px;
+
+    --intro-leading:        38px;
+    --leading:              32px;
+
+    --gap-sections:         48px;
+    --gap-entries:          48px;
+    --gap-entry-parts:      16px;
+    --entry-indent:         40px;
+}
+
+/* ============================================================
+   Reset
+   ============================================================ */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+
+html, body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font);
+    font-size: var(--size-body);
+    line-height: var(--leading);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   Page layout
+   Two-column grid: sidebar (future nav) + content
+   ============================================================ */
+
+.page {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 800px) 1fr;
+    min-height: 100vh;
+    padding-block: 78px;
+}
+
+.sidebar {
+    /* Reserved for future portfolio navigation */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sections);
+}
+
+/* ============================================================
+   CV header
+   ============================================================ */
+
+.cv-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cv-header h1 {
+    font-size: var(--size-name);
+    font-weight: 600;
+    line-height: normal;
+}
+
+.cv-header .name {
+    color: var(--color-text);
+}
+
+.cv-header .role {
+    color: var(--color-secondary);
+}
+
+.contact {
+    font-size: var(--size-date);
+    line-height: normal;
+}
+
+/* ============================================================
+   Intro / bio
+   ============================================================ */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.greeting {
+    font-size: var(--size-greeting);
+    font-weight: 700;
+    line-height: normal;
+    color: var(--color-accent);
+}
+
+.intro-para {
+    font-size: var(--size-intro-para);
+    line-height: var(--intro-leading);
+}
+
+.body-text p + p {
+    margin-top: var(--leading);
+}
+
+/* ============================================================
+   Section label
+   ============================================================ */
+
+.section-label {
+    font-size: var(--size-section-label);
+    font-weight: 600;
+    color: var(--color-section-label);
+    line-height: var(--leading);
+}
+
+/* ============================================================
+   Experience & other sections
+   ============================================================ */
+
+.experience,
+.other {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-entries);
+}
+
+.other {
+    font-size: 16px;
+}
+
+/* ============================================================
+   Entry (job / project / writing)
+   ============================================================ */
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-entry-parts);
+}
+
+.entry-title {
+    font-size: var(--size-body);
+    line-height: var(--leading);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    align-items: baseline;
+}
+
+.entry-title strong {
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.entry-title a {
+    font-weight: 500;
+}
+
+.entry-reporting {
+    font-size: var(--size-body);
+    line-height: var(--leading);
+    color: var(--color-secondary);
+}
+
+.entry-date {
+    font-size: var(--size-date);
+    line-height: var(--leading);
+    color: var(--color-secondary);
+}
+
+.entry-body {
+    padding-left: var(--entry-indent);
+}
+
+.entry-body p + p {
+    margin-top: var(--leading);
+}
+
+.entry-body blockquote {
+    margin-top: var(--leading);
+    padding-left: 16px;
+    border-left: 2px solid #d8d8d8;
+    color: var(--color-secondary);
+    font-style: italic;
+}
+
+.entry-body ul,ul {
+    list-style: disc;
+    padding-left: 33px;
+}
+
+.entry-body ul li {
+    line-height: var(--leading);
+}
+
+/* ============================================================
+   Bio page — header
+   ============================================================ */
+
+.bio-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.bio-avatar {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.bio-name {
+    font-size: var(--size-name);
+    font-weight: 600;
+    line-height: normal;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.bio-name .name {
+    font-weight: 800;
+}
+
+.bio-name .role {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* ============================================================
+   Bio page — company logos
+   ============================================================ */
+
+.logos-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo--hailo     { height: 40px; width: auto; }
+.logo--trainline { height: 22px; width: auto; }
+.logo--hedgehog  { height: 26px; width: auto; }
+.logo--inveniam  { height: 13px; width: auto; }
+
+.logos-row + .other {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 36px;
+}
+
+/* ============================================================
+   Bio page — text content
+   ============================================================ */
+
+.bio {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bio-greeting {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    color: var(--color-greeting);
+}
+
+.bio .body-text p {
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 34px;
+    color: var(--color-text-muted);
+}
+
+.bio .body-text p + p {
+    margin-top: 30px;
+}
+
+.bio .body-text p.intro-para {
+    font-size: var(--size-intro-para);
+    font-weight: 600;
+    line-height: var(--intro-leading);
+}
+
+/* ============================================================
+   Bio page — contact footer
+   ============================================================ */
+
+.bio-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 18px;
+    line-height: normal;
+    color: var(--color-text);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 1100px) {
+    .page {
+        grid-template-columns: 1fr;
+        padding: 60px 48px;
+    }
+
+    .sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --size-name:        28px;
+        --size-greeting:    26px;
+        --size-body:        16px;
+        --size-date:        15px;
+        --leading:          26px;
+        --gap-sections:     32px;
+        --gap-entries:      32px;
+        --gap-entry-parts:  12px;
+        --entry-indent:     16px;
+        --size-intro-para:  20px;
+        --intro-leading:    30px;
+    }
+
+    .page {
+        padding: 32px 20px;
+    }
+
+    /* CV: tighten blockquote indent */
+    .entry-body blockquote {
+        padding-left: 12px;
+    }
+
+    /* Bio: stack avatar above name */
+    .bio-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .bio-name {
+        font-size: 28px;
+        white-space: normal;
+    }
+
+    /* Bio: wrap logos into two rows */
+    .logos-row {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 20px 40px;
+    }
+
+    /* Bio: scale body text */
+    .bio .body-text p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .bio .body-text p + p {
+        margin-top: 24px;
+    }
+
+    .bio .body-text p.intro-para {
+        font-size: 20px;
+        line-height: 30px;
+    }
+}

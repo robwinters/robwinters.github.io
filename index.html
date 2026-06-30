@@ -1,14 +1,97 @@
----
-layout: default
-title: Your New Jekyll Site
-blurb: this is my blurb
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rob Winters — Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page">
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+        <aside class="sidebar">
+            <!-- Future portfolio navigation -->
+        </aside>
+
+        <main class="content">
+
+            <header class="bio-header">
+                <img src="assets/rob-winters-designer-writer.jpg" alt="Rob Winters" class="bio-avatar">
+                <h1 class="bio-name">
+                    <span class="name">Rob Winters</span><span class="role">/Designer</span>
+                </h1>
+            </header>
+
+
+            <section class="bio">
+                <p class="bio-greeting" id="bio-greeting"></p>
+                <div class="body-text">
+                    <p class="intro-para">I'm Rob, a product designer with almost 30 years of experience building digital products and leading high-performing, user-centred design teams. Together with some amazing individuals, I've built products that have been used and loved by millions of people.</p>
+                    <p>I was the founding designer and Head of Design at <a href="https://www.theguardian.com/business/2013/dec/15/hailo-taxi-hailing-app-global-growth">Hailo</a>, a taxi app that started in London in 2011 and by 2015 was operating in over 30 cities worldwide. In 2016, I started as Head of Design at <a href="https://www.thetrainline.com">Trainline</a>, where I grew the design team from three to twenty-three and oversaw a successful rebrand, European expansion, and eventually IPO.</p>
+                    <p>In 2019, I took time off to write some books. Then, when it turned out I wasn't the next J.K. Rowling, I joined Hedgehog (later acquired by <a href="https://www.inveniam.io/">Inveniam</a>), where I'm now helping with their mission to enable the systematic trading of private market assets.</p>
+                    <p>In my downtime, between family life and writing, I’ve been exploring AI-assisted development and have shipped two swiftUI applications to the App Store. It’s an exciting time to be a designer and maker. When anyone can create, judgement, craft, and taste become even more valuable.</p>
+                </div>
+            </section>
+
+            <div class="logos-row">
+                <img src="assets/logo-hailo.svg" alt="Hailo" class="logo logo--hailo">
+                <img src="assets/logo-trainline.svg" alt="Trainline" class="logo logo--trainline">
+                <img src="assets/Logo-hedgehog.svg" alt="Hedgehog" class="logo logo--hedgehog">
+                <img src="assets/logo-inveniam.svg" alt="Inveniam" class="logo logo--inveniam">
+            </div>
+
+            
+
+            <section class="other">
+
+                <article class="entry">
+                    <div class="entry-header">
+                        <p class="entry-title"><strong>Personal projects</strong></p>
+                    </div>
+                    <div>
+                        <p>There have been many side projects I've worked on over the years. These are my current projects.</p>
+                        <ul>
+                            <li><a href="https://www.thealbatross.app/">Albatross</a> A novel writing app for Mac</li>
+                            <li><a href="https://justlookup.app/">Lookup</a> An ISS tracker for iOS and Apple Watch (In review)</li>
+                            <li><a href="https://www.robwinters.co.uk/bird">Bird</a> A concept for a dedicated hardware writing device</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-header">
+                        <p class="entry-title"><strong>Writing</strong></p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><a href="https://www.amazon.co.uk/His-Name-was-Wren-small-town-ebook/dp/B08KGVNVNB">His Name was Wren</a> — Science Fiction</li>
+                            <li><a href="https://www.amazon.co.uk/Maker-Wren-Trilogy-Book-ebook/dp/B09MNVYDQD">The Maker</a> — Science Fiction</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </section>
+
+            <footer class="bio-contact">
+                <p>Personal website: <a href="https://www.robwinters.co.uk">robwinters.co.uk</a></p>
+            </footer>
+
+            
+
+
+
+
+
+        </main>
+    </div>
+
+    <script>
+        const h = new Date().getHours();
+        document.getElementById('bio-greeting').textContent =
+            h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
+    </script>
+</body>
+</html>
