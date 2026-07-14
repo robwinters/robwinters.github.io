@@ -11,6 +11,10 @@
     --color-link:           #0095ff;
     --color-text-muted:     #4a4a4a;
     --color-greeting:       #929292;
+    --color-tl-company:     #1b1b1b;
+    --color-tl-reporting:   #8c8c8c;
+    --color-tl-line:        #c4c4c4;
+    --color-tl-dot:         #d7d7d7;
 
     --font:                 'Inter', sans-serif;
 
@@ -282,9 +286,147 @@ a:hover {
 .logo--hedgehog  { height: 26px; width: auto; }
 .logo--inveniam  { height: 13px; width: auto; }
 
+.logos-row + .timeline,
 .logos-row + .other {
     border-top: 1px solid #e0e0e0;
-    padding-top: 36px;
+    padding-top: 56px;
+}
+
+/* ============================================================
+   Bio page — career timeline
+   ============================================================ */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 56px;
+}
+
+/* Last entry needs no trailing space — the section padding provides it */
+.tl-entry--last .tl-detail {
+    padding-bottom: 0;
+}
+
+.tl-entry {
+    display: grid;
+    grid-template-columns: 110px 24px 1fr;
+    column-gap: 8px;
+    align-items: stretch;
+}
+
+/* Left: date range */
+.tl-date {
+    font-size: 15px;
+    line-height: 22px;
+    text-align: right;
+    color: var(--color-secondary);
+}
+
+/* Middle: connector line + dot */
+.tl-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tl-marker::before {
+    content: "";
+    width: 1px;
+    height: 8px;
+    background: var(--color-tl-line);
+}
+
+.tl-entry--current .tl-marker::before {
+    background: transparent;
+}
+
+.tl-marker::after {
+    content: "";
+    width: 1px;
+    flex: 1;
+    background: var(--color-tl-line);
+}
+
+.tl-entry--last .tl-marker::after {
+    background: transparent;
+}
+
+.tl-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-tl-dot);
+    flex-shrink: 0;
+}
+
+.tl-entry--current .tl-dot {
+    background: var(--color-tl-company);
+}
+
+/* Right: role / company / reporting / summary */
+.tl-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-bottom: 28px;
+    padding-top: 1px;
+}
+
+.tl-role {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 17px;
+    line-height: 24px;
+}
+
+.tl-role strong {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.tl-at {
+    font-weight: 600;
+    color: var(--color-text);
+    opacity: 0.2;
+}
+
+.tl-company {
+    font-weight: 500;
+    color: var(--color-tl-company);
+}
+
+.tl-company a {
+    color: var(--color-tl-company);
+    text-decoration: underline;
+}
+
+.tl-arrow {
+    color: #bdbdbd;
+}
+
+.tl-role--plain {
+    font-weight: 400;
+    color: var(--color-tl-reporting);
+}
+
+.tl-role--plain a {
+    color: var(--color-tl-reporting);
+    text-decoration: underline;
+}
+
+.tl-reporting {
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--color-tl-reporting);
+}
+
+.tl-summary {
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--color-secondary);
 }
 
 /* ============================================================
@@ -351,21 +493,21 @@ a:hover {
 
 @media (max-width: 640px) {
     :root {
-        --size-name:        28px;
+        --size-name:        26px;
         --size-greeting:    26px;
         --size-body:        16px;
         --size-date:        15px;
         --leading:          26px;
-        --gap-sections:     32px;
-        --gap-entries:      32px;
+        --gap-sections:     40px;
+        --gap-entries:      28px;
         --gap-entry-parts:  12px;
         --entry-indent:     16px;
-        --size-intro-para:  20px;
-        --intro-leading:    30px;
+        --size-intro-para:  21px;
+        --intro-leading:    31px;
     }
 
     .page {
-        padding: 32px 20px;
+        padding: 44px 24px 72px;
     }
 
     /* CV: tighten blockquote indent */
@@ -373,37 +515,119 @@ a:hover {
         padding-left: 12px;
     }
 
+    /* Lists: shallower indent */
+    ul,
+    .entry-body ul {
+        padding-left: 22px;
+    }
+
     /* Bio: stack avatar above name */
     .bio-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 14px;
+    }
+
+    .bio-avatar {
+        width: 56px;
+        height: 56px;
     }
 
     .bio-name {
-        font-size: 28px;
+        font-size: 26px;
         white-space: normal;
     }
 
-    /* Bio: wrap logos into two rows */
+    .bio-greeting {
+        font-size: 16px;
+    }
+
+    /* Bio: logos settle into a tidy 2×2 grid */
     .logos-row {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 20px 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+        align-items: center;
+        justify-items: start;
+    }
+
+    /* Section dividers: slightly tighter breathing room */
+    .logos-row + .timeline,
+    .logos-row + .other {
+        padding-top: 40px;
+    }
+
+    .timeline {
+        padding-bottom: 40px;
+    }
+
+    /* Timeline: rail moves to the far left, date becomes a
+       small label sitting above the role */
+    .tl-entry {
+        grid-template-columns: 14px 1fr;
+        grid-template-areas:
+            "marker date"
+            "marker detail";
+        column-gap: 12px;
+    }
+
+    .tl-marker { grid-area: marker; }
+    .tl-detail { grid-area: detail; }
+
+    .tl-date {
+        grid-area: date;
+        text-align: left;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+
+    /* Align the dot with the date label's centre line */
+    .tl-marker::before {
+        height: 5px;
+    }
+
+    .tl-dot {
+        width: 7px;
+        height: 7px;
+    }
+
+    .tl-detail {
+        padding-top: 0;
+        padding-bottom: 30px;
+    }
+
+    .tl-role {
+        font-size: 16px;
+        line-height: 23px;
+        gap: 5px;
+    }
+
+    .tl-reporting,
+    .tl-summary {
+        font-size: 14px;
+        line-height: 21px;
     }
 
     /* Bio: scale body text */
     .bio .body-text p {
         font-size: 16px;
-        line-height: 26px;
+        line-height: 27px;
     }
 
     .bio .body-text p + p {
-        margin-top: 24px;
+        margin-top: 22px;
     }
 
     .bio .body-text p.intro-para {
-        font-size: 20px;
-        line-height: 30px;
+        font-size: 21px;
+        line-height: 31px;
+    }
+
+    /* Contact footer */
+    .bio-contact {
+        font-size: 16px;
     }
 }
