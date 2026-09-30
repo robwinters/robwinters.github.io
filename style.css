@@ -15,6 +15,10 @@
     --color-tl-reporting:   #8c8c8c;
     --color-tl-line:        #c4c4c4;
     --color-tl-dot:         #d7d7d7;
+    --color-tl-arrow:       #bdbdbd;
+    --color-divider:        #e0e0e0;
+
+    --opacity-tl-at:        0.2;
 
     --font:                 'Inter', sans-serif;
 
@@ -24,14 +28,33 @@
     --size-body:            18px;
     --size-date:            18px;
     --size-section-label:   22px;
+    --size-avatar:          62px;
+    --size-bio-greeting:    18px;
+    --size-bio:             19px;
+    --size-footer:          18px;
+    --size-other:           16px;
+    --size-tl-date:         15px;
+    --size-tl-role:         17px;
+    --size-tl-meta:         15px;
+    --size-tl-dot:          8px;
 
     --intro-leading:        38px;
     --leading:              32px;
+    --bio-leading:          34px;
+    --tl-date-leading:      22px;
+    --tl-role-leading:      24px;
+    --tl-meta-leading:      22px;
 
     --gap-sections:         48px;
     --gap-entries:          48px;
     --gap-entry-parts:      16px;
     --entry-indent:         40px;
+    --gap-bio:              8px;
+    --gap-bio-header:       20px;
+    --gap-bio-paras:        30px;
+    --gap-divider:          56px;
+    --gap-tl-entry:         28px;
+    --gap-tl-role:          6px;
 }
 
 /* ============================================================
@@ -167,7 +190,7 @@ a:hover {
 }
 
 .other {
-    font-size: 16px;
+    font-size: var(--size-other);
 }
 
 /* ============================================================
@@ -242,12 +265,12 @@ a:hover {
 .bio-header {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: var(--gap-bio-header);
 }
 
 .bio-avatar {
-    width: 62px;
-    height: 62px;
+    width: var(--size-avatar);
+    height: var(--size-avatar);
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
@@ -288,8 +311,8 @@ a:hover {
 
 .logos-row + .timeline,
 .logos-row + .other {
-    border-top: 1px solid #e0e0e0;
-    padding-top: 56px;
+    border-top: 1px solid var(--color-divider);
+    padding-top: var(--gap-divider);
 }
 
 /* ============================================================
@@ -299,8 +322,8 @@ a:hover {
 .timeline {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 56px;
+    border-bottom: 1px solid var(--color-divider);
+    padding-bottom: var(--gap-divider);
 }
 
 /* Last entry needs no trailing space — the section padding provides it */
@@ -317,8 +340,8 @@ a:hover {
 
 /* Left: date range */
 .tl-date {
-    font-size: 15px;
-    line-height: 22px;
+    font-size: var(--size-tl-date);
+    line-height: var(--tl-date-leading);
     text-align: right;
     color: var(--color-secondary);
 }
@@ -353,8 +376,8 @@ a:hover {
 }
 
 .tl-dot {
-    width: 8px;
-    height: 8px;
+    width: var(--size-tl-dot);
+    height: var(--size-tl-dot);
     border-radius: 50%;
     background: var(--color-tl-dot);
     flex-shrink: 0;
@@ -369,7 +392,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: 3px;
-    padding-bottom: 28px;
+    padding-bottom: var(--gap-tl-entry);
     padding-top: 1px;
 }
 
@@ -377,9 +400,9 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 6px;
-    font-size: 17px;
-    line-height: 24px;
+    gap: var(--gap-tl-role);
+    font-size: var(--size-tl-role);
+    line-height: var(--tl-role-leading);
 }
 
 .tl-role strong {
@@ -390,7 +413,7 @@ a:hover {
 .tl-at {
     font-weight: 600;
     color: var(--color-text);
-    opacity: 0.2;
+    opacity: var(--opacity-tl-at);
 }
 
 .tl-company {
@@ -404,7 +427,7 @@ a:hover {
 }
 
 .tl-arrow {
-    color: #bdbdbd;
+    color: var(--color-tl-arrow);
 }
 
 .tl-role--plain {
@@ -418,14 +441,14 @@ a:hover {
 }
 
 .tl-reporting {
-    font-size: 15px;
-    line-height: 22px;
+    font-size: var(--size-tl-meta);
+    line-height: var(--tl-meta-leading);
     color: var(--color-tl-reporting);
 }
 
 .tl-summary {
-    font-size: 15px;
-    line-height: 22px;
+    font-size: var(--size-tl-meta);
+    line-height: var(--tl-meta-leading);
     color: var(--color-secondary);
 }
 
@@ -436,25 +459,25 @@ a:hover {
 .bio {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--gap-bio);
 }
 
 .bio-greeting {
-    font-size: 18px;
+    font-size: var(--size-bio-greeting);
     font-weight: 600;
     line-height: normal;
     color: var(--color-greeting);
 }
 
 .bio .body-text p {
-    font-size: 19px;
+    font-size: var(--size-bio);
     font-weight: 500;
-    line-height: 34px;
+    line-height: var(--bio-leading);
     color: var(--color-text-muted);
 }
 
 .bio .body-text p + p {
-    margin-top: 30px;
+    margin-top: var(--gap-bio-paras);
 }
 
 .bio .body-text p.intro-para {
@@ -471,7 +494,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    font-size: 18px;
+    font-size: var(--size-footer);
     line-height: normal;
     color: var(--color-text);
 }
@@ -504,6 +527,23 @@ a:hover {
         --entry-indent:     16px;
         --size-intro-para:  21px;
         --intro-leading:    31px;
+        --size-avatar:      56px;
+        --size-bio-greeting: 16px;
+        --size-bio:         16px;
+        --size-footer:      16px;
+        --size-tl-date:     12px;
+        --size-tl-role:     16px;
+        --size-tl-meta:     14px;
+        --size-tl-dot:      7px;
+        --bio-leading:      27px;
+        --tl-date-leading:  18px;
+        --tl-role-leading:  23px;
+        --tl-meta-leading:  21px;
+        --gap-bio-header:   14px;
+        --gap-bio-paras:    22px;
+        --gap-divider:      40px;
+        --gap-tl-entry:     30px;
+        --gap-tl-role:      5px;
     }
 
     .page {
@@ -525,21 +565,10 @@ a:hover {
     .bio-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 14px;
-    }
-
-    .bio-avatar {
-        width: 56px;
-        height: 56px;
     }
 
     .bio-name {
-        font-size: 26px;
         white-space: normal;
-    }
-
-    .bio-greeting {
-        font-size: 16px;
     }
 
     /* Bio: logos settle into a tidy 2×2 grid */
@@ -549,16 +578,6 @@ a:hover {
         row-gap: 30px;
         align-items: center;
         justify-items: start;
-    }
-
-    /* Section dividers: slightly tighter breathing room */
-    .logos-row + .timeline,
-    .logos-row + .other {
-        padding-top: 40px;
-    }
-
-    .timeline {
-        padding-bottom: 40px;
     }
 
     /* Timeline: rail moves to the far left, date becomes a
@@ -577,8 +596,6 @@ a:hover {
     .tl-date {
         grid-area: date;
         text-align: left;
-        font-size: 12px;
-        line-height: 18px;
         letter-spacing: 0.05em;
         text-transform: uppercase;
         margin-bottom: 4px;
@@ -589,45 +606,7 @@ a:hover {
         height: 5px;
     }
 
-    .tl-dot {
-        width: 7px;
-        height: 7px;
-    }
-
     .tl-detail {
         padding-top: 0;
-        padding-bottom: 30px;
-    }
-
-    .tl-role {
-        font-size: 16px;
-        line-height: 23px;
-        gap: 5px;
-    }
-
-    .tl-reporting,
-    .tl-summary {
-        font-size: 14px;
-        line-height: 21px;
-    }
-
-    /* Bio: scale body text */
-    .bio .body-text p {
-        font-size: 16px;
-        line-height: 27px;
-    }
-
-    .bio .body-text p + p {
-        margin-top: 22px;
-    }
-
-    .bio .body-text p.intro-para {
-        font-size: 21px;
-        line-height: 31px;
-    }
-
-    /* Contact footer */
-    .bio-contact {
-        font-size: 16px;
     }
 }
