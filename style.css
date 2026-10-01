@@ -265,7 +265,29 @@ a:hover {
 .bio-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: var(--gap-bio-header);
+}
+
+.bio-who {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-bio-header);
+}
+
+.portfolio-button {
+    flex-shrink: 0;
+    padding: 12px 16px;
+    border-radius: 5px;
+    background: #000;
+    color: #fff;
+    font-size: var(--size-footer);
+    line-height: 22px;
+}
+
+.portfolio-button:hover {
+    background: #222;
+    text-decoration: none;
 }
 
 .bio-avatar {
@@ -561,10 +583,21 @@ a:hover {
         padding-left: 22px;
     }
 
-    /* Bio: stack avatar above name */
+    /* Bio: stack avatar above name, with the portfolio button top right */
     .bio-header {
+        position: relative;
+        align-items: flex-start;
+    }
+
+    .bio-who {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .portfolio-button {
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .bio-name {
