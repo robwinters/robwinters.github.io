@@ -1,0 +1,460 @@
+/* ============================================================
+   Portfolio — simple version (built from Paper "Portfolio — Simple")
+   Desktop layout. Phone layout still to come.
+   ============================================================ */
+
+:root {
+    --color-bg:             #ffffff;
+    --color-ink:            #141414;
+    --color-body:           #4a4a4a;
+    --color-secondary:      #6b6b6b;
+    --color-statement:      #083542;
+    --color-rule:           #b5b5b5;
+    --color-link:           #0095ff;
+
+    --color-top-bg:         #eef0ec;
+    --color-panel:          #f4f4f3;
+    --color-rowpal-bg:      #e6e5e3;
+    --color-lookup-bg:      #3f4533;
+
+    --color-brand-hailo:    #f6c033;
+    --color-brand-trainline:#00b3a0;
+    --color-brand-hedgehog: #305ff1;
+    --color-brand-rowpal:   #2d56b8;
+
+    --font-sans:            'Inter', system-ui, sans-serif;
+    --font-serif:           'Newsreader', Georgia, serif;
+
+    --column:               960px;
+    --meta-width:           240px;
+    --measure:              640px;
+    --radius-panel:         clamp(6px, (100vw - 96px) * 0.00625, 9px);  /* 6px at 960 wide, 9px at 1440 */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Full-width tinted band holding the header, intro, skills and career */
+.top,
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top {
+    padding: 96px 24px 0;
+    background: var(--color-top-bg);
+}
+
+.page {
+    padding: 96px 24px 120px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: var(--column);
+    max-width: 100%;
+}
+
+/* ------------------------------------------------------------
+   Text styles
+   ------------------------------------------------------------ */
+
+.label {
+    font-size: 13px;
+    line-height: 30px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+}
+
+.lead {
+    font-family: var(--font-serif);
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 400;
+    color: var(--color-ink);
+}
+
+.body {
+    font-size: 18px;
+    line-height: 30px;
+    color: var(--color-body);
+}
+
+.role-text {
+    font-size: 18px;
+    line-height: 30px;
+    color: var(--color-ink);
+}
+
+.text-link {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 500;
+}
+
+.caption {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-secondary);
+}
+
+/* ------------------------------------------------------------
+   Header and intro
+   ------------------------------------------------------------ */
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.site-header .who {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.site-header img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.site-header .name {
+    font-weight: 600;
+    color: var(--color-ink);
+}
+
+.site-header .title {
+    color: var(--color-secondary);
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 120px 0 96px;
+}
+
+.intro .statement {
+    font-family: var(--font-serif);
+    font-size: 44px;
+    line-height: 56px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--color-statement);
+}
+
+.intro .body {
+    width: var(--measure);
+    max-width: 100%;
+}
+
+/* ------------------------------------------------------------
+   Rows: label on the left, content on the right
+   ------------------------------------------------------------ */
+
+.row {
+    display: flex;
+    border-top: 1px solid var(--color-rule);
+    padding-top: 40px;
+}
+
+.row > .label {
+    width: var(--meta-width);
+    flex-shrink: 0;
+}
+
+.skills {
+    padding-bottom: 40px;
+}
+
+.skills p {
+    width: var(--measure);
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.career {
+    padding-bottom: 120px;
+}
+
+.career ol {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    flex: 1;
+}
+
+.career li {
+    display: flex;
+    gap: 24px;
+}
+
+.career .years {
+    width: 120px;
+    flex-shrink: 0;
+    font-size: 15px;
+    line-height: 30px;
+    color: var(--color-secondary);
+}
+
+.career .role {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 600;
+}
+
+.career .role--plain {
+    font-weight: 400;
+}
+
+.career .note {
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--color-secondary);
+}
+
+/* ------------------------------------------------------------
+   Work sections
+   ------------------------------------------------------------ */
+
+.work {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding: 40px 0 120px;
+}
+
+.story {
+    display: flex;
+}
+
+.meta {
+    width: var(--meta-width);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.meta h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 30px;
+    font-weight: 600;
+}
+
+.meta h2::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--dot);
+    flex-shrink: 0;
+}
+
+.meta p {
+    padding-left: 20px;
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--color-secondary);
+}
+
+.story-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: var(--measure);
+    flex-shrink: 0;
+}
+
+.my-role {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
+}
+
+.my-role .label {
+    line-height: 20px;
+}
+
+.highlight {
+    display: flex;
+    padding-top: 24px;
+}
+
+.highlight > .label {
+    width: var(--meta-width);
+    flex-shrink: 0;
+}
+
+.highlight .story-text {
+    gap: 20px;
+}
+
+.tools {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
+}
+
+.tools div {
+    display: flex;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.tools .label {
+    width: 80px;
+    flex-shrink: 0;
+    line-height: 28px;
+}
+
+/* ------------------------------------------------------------
+   Image panels
+   Each panel is one image exported from Paper at 3×, saved at
+   2× and 1× of its widest size. The browser picks the smallest
+   file that stays sharp on the screen it's showing on.
+   ------------------------------------------------------------ */
+
+figure {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-panel);
+    background: var(--color-panel);     /* shows while the image loads */
+}
+
+.panel img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* <picture> wrappers shouldn't affect layout; the <img> inside is the box */
+picture {
+    display: contents;
+}
+
+.panel--outline {
+    outline: 1px solid #e3e3e3;
+}
+
+.pair {
+    display: flex;
+    gap: 16px;
+}
+
+.pair > * {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+/* ------------------------------------------------------------
+   Breakout: panels grow past the 960px text column on wider
+   windows, up to 1440px, leaving at least 48px each side.
+   ------------------------------------------------------------ */
+
+.breakout {
+    --breakout: clamp(100%, 100vw - 96px, 1440px);
+    width: var(--breakout);
+    margin-left: calc((100% - var(--breakout)) / 2);
+}
+
+/* 16px gap at 960px wide, growing to 24px at 1440px */
+.breakout.pair {
+    gap: clamp(16px, 16px + (100vw - 1056px) / 60, 24px);
+}
+
+/* ------------------------------------------------------------
+   Things placed over a panel image
+   ------------------------------------------------------------ */
+
+/* Prototype: clicking anywhere on the panel plays the video in place of the still */
+.prototype {
+    cursor: pointer;
+}
+
+.prototype.is-playing {
+    cursor: auto;
+}
+
+.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 13px 38px;
+    border: 0;
+    border-radius: 999px;
+    background: #000;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.prototype:hover .play {
+    background: #222;
+}
+
+/* Screen recordings sit over the screen in a panel image. Each
+   video's position and corner radius are measured from the Paper
+   export and set on the video itself. */
+.screen-video {
+    position: absolute;
+    object-fit: cover;
+}
+
+/* ------------------------------------------------------------
+   Footer
+   ------------------------------------------------------------ */
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 40px;
+}
