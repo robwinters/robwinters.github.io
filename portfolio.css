@@ -340,20 +340,34 @@ a:hover {
 .tools {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     padding-top: 16px;
 }
 
 .tools div {
     display: flex;
-    font-size: 16px;
-    line-height: 28px;
+    align-items: flex-start;
 }
 
 .tools .label {
     width: 80px;
     flex-shrink: 0;
-    line-height: 28px;
+    line-height: 26px;
+}
+
+.tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tags li {
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--color-top-bg);
+    font-size: 14px;
+    line-height: 22px;
 }
 
 /* ------------------------------------------------------------
@@ -678,14 +692,8 @@ picture {
         gap: 16px;
     }
 
-    .tools div {
-        font-size: 15px;
-        line-height: 26px;
-    }
-
     .tools .label {
         width: 64px;
-        line-height: 26px;
     }
 
     /* Panels run edge to edge; captions keep the text margins */
@@ -737,10 +745,17 @@ picture {
     }
 
     .video-lookup {
-        left: 26.603%;
-        top: 3.465%;
-        width: 46.795%;
-        height: 49.134%;
+        left: 12.949%;
+        top: 2.852%;
+        width: 74.038%;
+        height: 60.187%;
+    }
+
+    .video-rowpal {
+        left: 14.359%;
+        top: 6.643%;
+        width: 71.410%;
+        height: 86.714%;
     }
 
     .site-footer {
