@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portfolio.css?v=7">
+    <link rel="stylesheet" href="portfolio.css?v=9">
 </head>
 <body>
 <div class="top">
@@ -17,8 +17,10 @@
     <header class="site-header">
         <div class="who">
             <picture><source type="image/avif" srcset="assets/portfolio/avatar-1x.avif 1x, assets/portfolio/avatar-2x.avif 2x"><img src="assets/portfolio/avatar.jpg" alt=""></picture>
-            <span class="name">Rob Winters</span>
-            <span class="title">Founding Designer &amp; Head of Design</span>
+            <span class="who-text">
+                <span class="name">Rob Winters</span>
+                <span class="title">Founding Designer &amp; Head of Design</span>
+            </span>
         </div>
         <a href="mailto:rawinters@gmail.com">rawinters@gmail.com</a>
     </header>
@@ -58,7 +60,7 @@
             <div class="story">
                 <div class="meta" style="--dot: var(--color-brand-hailo)">
                     <h2>Hailo</h2>
-                    <p>2011–2016<br>Head of Design</p>
+                    <p><span>2011–2016</span> <span>Head of Design</span></p>
                 </div>
                 <div class="story-text">
                     <p class="lead">I was the founding designer (employee number 3) and Head of Design at Hailo, a taxi app started in London in 2011.</p>
@@ -75,7 +77,9 @@
             <figure class="breakout">
                 <div class="panel">
                     <picture>
-                        <source type="image/avif" srcset="assets/portfolio/hailo-collage-1x.avif?v=2 1440w, assets/portfolio/hailo-collage-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), calc(100vw - 48px)">
+                        <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/hailo-collage-m-2x.avif 780w, assets/portfolio/hailo-collage-m-3x.avif 1170w, assets/portfolio/hailo-collage-m-4x.avif 1560w" sizes="100vw" width="390" height="926">
+                        <source media="(max-width: 640px)" srcset="assets/portfolio/hailo-collage-m.jpg" width="390" height="926">
+                        <source type="image/avif" srcset="assets/portfolio/hailo-collage-1x.avif?v=2 1440w, assets/portfolio/hailo-collage-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
                         <img src="assets/portfolio/hailo-collage.jpg?v=2" width="1440" height="962" loading="lazy" alt="Hailo taxi illustrations, passenger app screens, a user flow diagram and the Back in Black campaign">
                     </picture>
                 </div>
@@ -93,7 +97,9 @@
             <figure class="breakout">
                 <div class="panel">
                     <picture>
-                        <source type="image/avif" srcset="assets/portfolio/hailo-hig-1x.avif?v=2 1440w, assets/portfolio/hailo-hig-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), calc(100vw - 48px)">
+                        <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/hailo-hig-m-2x.avif 780w, assets/portfolio/hailo-hig-m-3x.avif 1170w, assets/portfolio/hailo-hig-m-4x.avif 1560w" sizes="100vw" width="390" height="308">
+                        <source media="(max-width: 640px)" srcset="assets/portfolio/hailo-hig-m.jpg" width="390" height="308">
+                        <source type="image/avif" srcset="assets/portfolio/hailo-hig-1x.avif?v=2 1440w, assets/portfolio/hailo-hig-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
                         <img src="assets/portfolio/hailo-hig.jpg?v=2" width="1440" height="1012" loading="lazy" alt="The Hailo app in Apple’s Human Interface Guidelines for Apple Watch">
                     </picture>
                 </div>
@@ -103,7 +109,7 @@
             <figure class="breakout">
                 <div class="panel panel--outline">
                     <picture>
-                        <source type="image/avif" srcset="assets/portfolio/hailo-tweets-1x.avif?v=2 1440w, assets/portfolio/hailo-tweets-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), calc(100vw - 48px)">
+                        <source type="image/avif" srcset="assets/portfolio/hailo-tweets-1x.avif?v=2 1440w, assets/portfolio/hailo-tweets-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
                         <img src="assets/portfolio/hailo-tweets.jpg?v=2" width="1440" height="810" loading="lazy" alt="Tweets from passengers praising Hailo, over a map of London covered in Hailo taxis">
                     </picture>
                 </div>
@@ -116,7 +122,7 @@
             <div class="story">
                 <div class="meta" style="--dot: var(--color-brand-trainline)">
                     <h2>Trainline</h2>
-                    <p>2016–2020<br>Head of Design</p>
+                    <p><span>2016–2020</span> <span>Head of Design</span></p>
                 </div>
                 <div class="story-text">
                     <p class="lead">Trainline is the world’s leading independent digital rail platform, selling tickets on behalf of over 270 rail and coach companies across 45 countries.</p>
@@ -132,7 +138,9 @@
             <figure class="breakout">
                 <div class="panel">
                     <picture>
-                        <source type="image/avif" srcset="assets/portfolio/trainline-concepts-1x.avif?v=2 1440w, assets/portfolio/trainline-concepts-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), calc(100vw - 48px)">
+                        <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/trainline-concepts-m-2x.avif 780w, assets/portfolio/trainline-concepts-m-3x.avif 1170w, assets/portfolio/trainline-concepts-m-4x.avif 1560w" sizes="100vw" width="390" height="485">
+                        <source media="(max-width: 640px)" srcset="assets/portfolio/trainline-concepts-m.jpg" width="390" height="485">
+                        <source type="image/avif" srcset="assets/portfolio/trainline-concepts-1x.avif?v=2 1440w, assets/portfolio/trainline-concepts-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
                         <img src="assets/portfolio/trainline-concepts.jpg?v=2" width="1440" height="900" loading="lazy" alt="Two journey concepts showing live train delays and onward travel options">
                     </picture>
                 </div>
@@ -143,7 +151,7 @@
                 <figure>
                     <div class="panel">
                         <picture>
-                            <source type="image/avif" srcset="assets/portfolio/trainline-eticket-1x.avif?v=2 708w, assets/portfolio/trainline-eticket-2x.avif?v=2 1416w" sizes="(min-width: 1536px) 708px, (min-width: 1056px) calc(50vw - 56px), calc(50vw - 32px)">
+                            <source type="image/avif" srcset="assets/portfolio/trainline-eticket-1x.avif?v=2 708w, assets/portfolio/trainline-eticket-2x.avif?v=2 1416w" sizes="(min-width: 1536px) 708px, (min-width: 1056px) calc(50vw - 56px), (min-width: 641px) calc(50vw - 32px), 100vw">
                             <img src="assets/portfolio/trainline-eticket.jpg?v=2" width="708" height="630" loading="lazy" alt="The Trainline eticket, printed at home and on mobile">
                         </picture>
                     </div>
@@ -152,7 +160,7 @@
                 <figure>
                     <div class="panel">
                         <picture>
-                            <source type="image/avif" srcset="assets/portfolio/trainline-team-1x.avif?v=2 708w, assets/portfolio/trainline-team-2x.avif?v=2 1416w" sizes="(min-width: 1536px) 708px, (min-width: 1056px) calc(50vw - 56px), calc(50vw - 32px)">
+                            <source type="image/avif" srcset="assets/portfolio/trainline-team-1x.avif?v=2 708w, assets/portfolio/trainline-team-2x.avif?v=2 1416w" sizes="(min-width: 1536px) 708px, (min-width: 1056px) calc(50vw - 56px), (min-width: 641px) calc(50vw - 32px), 100vw">
                             <img src="assets/portfolio/trainline-team.jpg?v=2" width="708" height="630" loading="lazy" alt="Photos of the Trainline design team">
                         </picture>
                     </div>
@@ -166,7 +174,7 @@
             <div class="story">
                 <div class="meta" style="--dot: var(--color-brand-hedgehog)">
                     <h2>Hedgehog &amp; Inveniam</h2>
-                    <p>2021–now<br>Head of Design</p>
+                    <p><span>2021–now</span> <span>Head of Design</span></p>
                 </div>
                 <div class="story-text">
                     <p class="lead">In 2021, I joined Hedgehog, a small start-up with a goal to lower the barrier of entry into investing in private markets.</p>
@@ -181,7 +189,9 @@
             <figure class="breakout">
                 <div class="panel">
                     <picture>
-                        <source type="image/avif" srcset="assets/portfolio/hedgehog-components-1x.avif?v=2 1440w, assets/portfolio/hedgehog-components-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), calc(100vw - 48px)">
+                        <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/hedgehog-components-m-2x.avif 780w, assets/portfolio/hedgehog-components-m-3x.avif 1170w, assets/portfolio/hedgehog-components-m-4x.avif 1560w" sizes="100vw" width="390" height="680">
+                        <source media="(max-width: 640px)" srcset="assets/portfolio/hedgehog-components-m.jpg" width="390" height="680">
+                        <source type="image/avif" srcset="assets/portfolio/hedgehog-components-1x.avif?v=2 1440w, assets/portfolio/hedgehog-components-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
                         <img src="assets/portfolio/hedgehog-components.jpg?v=2" width="1440" height="840" loading="lazy" alt="Design system components: filter chips, a date picker, a tree selection list and an account menu">
                     </picture>
                 </div>
@@ -191,10 +201,12 @@
             <figure class="breakout">
                 <div class="panel prototype">
                     <picture>
-                        <source type="image/avif" srcset="assets/portfolio/hedgehog-prototype-1x.avif?v=2 1440w, assets/portfolio/hedgehog-prototype-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), calc(100vw - 48px)">
+                        <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/hedgehog-prototype-m-2x.avif 780w, assets/portfolio/hedgehog-prototype-m-3x.avif 1170w, assets/portfolio/hedgehog-prototype-m-4x.avif 1560w" sizes="100vw" width="390" height="252">
+                        <source media="(max-width: 640px)" srcset="assets/portfolio/hedgehog-prototype-m.jpg" width="390" height="252">
+                        <source type="image/avif" srcset="assets/portfolio/hedgehog-prototype-1x.avif?v=2 1440w, assets/portfolio/hedgehog-prototype-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
                         <img src="assets/portfolio/hedgehog-prototype.jpg?v=2" width="1440" height="856" loading="lazy" alt="Files screen from a prototype built with Cursor">
                     </picture>
-                    <video class="screen-video" style="left: 8.287%; top: 8.366%; width: 83.449%; height: 83.191%; border-radius: 1.373% / 2.316%; outline: 1px solid #c6c6c6; outline-offset: -1px" src="assets/portfolio/hedgehog-prototype.mp4" controls playsinline preload="none" hidden aria-label="Screen recording of the prototype: filtering files, managing the table and viewing documents"></video>
+                    <video class="screen-video video-prototype" src="assets/portfolio/hedgehog-prototype.mp4" controls playsinline preload="none" hidden aria-label="Screen recording of the prototype: filtering files, managing the table and viewing documents"></video>
                     <button class="play" type="button">Play Prototype</button>
                 </div>
                 <figcaption class="caption">A prototype built using Cursor to demo ideas around filtering, table management, and viewing documents. Dummy data.</figcaption>
@@ -207,7 +219,7 @@
             <div class="story">
                 <div class="meta" style="--dot: var(--color-brand-rowpal)">
                     <h2>RowPal</h2>
-                    <p>iOS &amp; watchOS<br>In final testing</p>
+                    <p><span>iOS &amp; watchOS</span> <span>In final testing</span></p>
                 </div>
                 <div class="story-text">
                     <p class="lead">RowPal is an iOS rowing app. It works with any rowing machine and allows rowers to race their previous best performances or a pace boat.</p>
@@ -221,30 +233,34 @@
                 </div>
             </div>
 
-            <div class="pair breakout">
-                <div class="panel">
-                    <picture>
-                        <source type="image/avif" srcset="assets/portfolio/rowpal-phone-1x.avif?v=2 708w, assets/portfolio/rowpal-phone-2x.avif?v=2 1416w" sizes="(min-width: 1536px) 708px, (min-width: 1056px) calc(50vw - 56px), calc(50vw - 32px)">
-                        <img src="assets/portfolio/rowpal-phone.jpg?v=2" width="708" height="900" loading="lazy" alt="RowPal rowing screen with a pace boat">
-                    </picture>
-                    <video class="screen-video" style="left: 25.706%; top: 8.185%; width: 48.776%; height: 83.667%; border-radius: 14.48% / 6.64%" src="assets/portfolio/rowpal-1.mp4" poster="assets/portfolio/rowpal-1-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Screen recording of RowPal: choosing a pace boat, then rowing against it"></video>
+            <div class="panel-group">
+                <div class="pair breakout">
+                    <div class="panel">
+                        <picture>
+                            <source type="image/avif" srcset="assets/portfolio/rowpal-phone-1x.avif?v=2 708w, assets/portfolio/rowpal-phone-2x.avif?v=2 1416w" sizes="(min-width: 1536px) 708px, (min-width: 1056px) calc(50vw - 56px), (min-width: 641px) calc(50vw - 32px), 100vw">
+                            <img src="assets/portfolio/rowpal-phone.jpg?v=2" width="708" height="900" loading="lazy" alt="RowPal rowing screen with a pace boat">
+                        </picture>
+                        <video class="screen-video video-rowpal" src="assets/portfolio/rowpal-1.mp4" poster="assets/portfolio/rowpal-1-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Screen recording of RowPal: choosing a pace boat, then rowing against it"></video>
+                    </div>
+                    <div class="panel">
+                        <picture>
+                            <source type="image/avif" srcset="assets/portfolio/rowpal-screens-1x.avif?v=2 708w, assets/portfolio/rowpal-screens-2x.avif?v=2 1416w" sizes="(min-width: 1536px) 708px, (min-width: 1056px) calc(50vw - 56px), (min-width: 641px) calc(50vw - 32px), 100vw">
+                            <img src="assets/portfolio/rowpal-screens.jpg?v=2" width="708" height="900" loading="lazy" alt="RowPal rowing, heart rate zone and sessions screens">
+                        </picture>
+                    </div>
                 </div>
-                <div class="panel">
-                    <picture>
-                        <source type="image/avif" srcset="assets/portfolio/rowpal-screens-1x.avif?v=2 708w, assets/portfolio/rowpal-screens-2x.avif?v=2 1416w" sizes="(min-width: 1536px) 708px, (min-width: 1056px) calc(50vw - 56px), calc(50vw - 32px)">
-                        <img src="assets/portfolio/rowpal-screens.jpg?v=2" width="708" height="900" loading="lazy" alt="RowPal rowing, heart rate zone and sessions screens">
-                    </picture>
-                </div>
-            </div>
 
-            <figure class="breakout">
-                <div class="panel">
-                    <picture>
-                        <source type="image/avif" srcset="assets/portfolio/rowpal-watch-1x.avif?v=2 1440w, assets/portfolio/rowpal-watch-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), calc(100vw - 48px)">
-                        <img src="assets/portfolio/rowpal-watch.jpg?v=2" width="1440" height="780" loading="lazy" alt="RowPal live stats and a session summary">
-                    </picture>
-                </div>
-            </figure>
+                <figure class="breakout">
+                    <div class="panel">
+                        <picture>
+                            <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/rowpal-watch-m-2x.avif 780w, assets/portfolio/rowpal-watch-m-3x.avif 1170w, assets/portfolio/rowpal-watch-m-4x.avif 1560w" sizes="100vw" width="390" height="247">
+                            <source media="(max-width: 640px)" srcset="assets/portfolio/rowpal-watch-m.jpg" width="390" height="247">
+                            <source type="image/avif" srcset="assets/portfolio/rowpal-watch-1x.avif?v=2 1440w, assets/portfolio/rowpal-watch-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                            <img src="assets/portfolio/rowpal-watch.jpg?v=2" width="1440" height="780" loading="lazy" alt="RowPal live stats and a session summary">
+                        </picture>
+                    </div>
+                </figure>
+            </div>
         </section>
 
         <!-- ======================= Look Up ======================= -->
@@ -252,7 +268,7 @@
             <div class="story">
                 <div class="meta" style="--dot: var(--color-lookup-bg)">
                     <h2>Look Up</h2>
-                    <p>iOS &amp; watchOS<br>Live on the App Store</p>
+                    <p><span>iOS &amp; watchOS</span> <span>Live on the App Store</span></p>
                 </div>
                 <div class="story-text">
                     <p class="lead">The International Space Station is brightest at dusk and dawn as it moves across the sky, but it’s easy to miss. Unless you know where to look. Look Up tells you when it will be passing and how to locate it.</p>
@@ -261,24 +277,30 @@
                 </div>
             </div>
 
-            <figure class="breakout">
-                <div class="panel">
-                    <picture>
-                        <source type="image/avif" srcset="assets/portfolio/lookup-phones-1x.avif?v=2 1440w, assets/portfolio/lookup-phones-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), calc(100vw - 48px)">
-                        <img src="assets/portfolio/lookup-phones.jpg?v=2" width="1440" height="818" loading="lazy" alt="Look Up pass details and live globe screens">
-                    </picture>
-                    <video class="screen-video" style="left: 14.421%; top: 11.048%; width: 20.347%; height: 77.864%; border-radius: 10.47% / 4.82%" src="assets/portfolio/lookup-1.mp4" poster="assets/portfolio/lookup-1-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Screen recording of Look Up: the compass, the live globe and colour themes"></video>
-                </div>
-            </figure>
+            <div class="panel-group">
+                <figure class="breakout">
+                    <div class="panel">
+                        <picture>
+                            <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/lookup-phones-m-2x.avif 780w, assets/portfolio/lookup-phones-m-3x.avif 1170w, assets/portfolio/lookup-phones-m-4x.avif 1560w" sizes="100vw" width="390" height="808">
+                            <source media="(max-width: 640px)" srcset="assets/portfolio/lookup-phones-m.jpg" width="390" height="808">
+                            <source type="image/avif" srcset="assets/portfolio/lookup-phones-1x.avif?v=2 1440w, assets/portfolio/lookup-phones-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                            <img src="assets/portfolio/lookup-phones.jpg?v=2" width="1440" height="818" loading="lazy" alt="Look Up pass details and live globe screens">
+                        </picture>
+                        <video class="screen-video video-lookup" src="assets/portfolio/lookup-1.mp4" poster="assets/portfolio/lookup-1-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Screen recording of Look Up: the compass, the live globe and colour themes"></video>
+                    </div>
+                </figure>
 
-            <figure class="breakout">
-                <div class="panel">
-                    <picture>
-                        <source type="image/avif" srcset="assets/portfolio/lookup-watches-1x.avif?v=2 1440w, assets/portfolio/lookup-watches-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), calc(100vw - 48px)">
-                        <img src="assets/portfolio/lookup-watches.jpg?v=2" width="1440" height="980" loading="lazy" alt="Look Up Apple Watch faces and a sky widget">
-                    </picture>
-                </div>
-            </figure>
+                <figure class="breakout">
+                    <div class="panel">
+                        <picture>
+                            <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/lookup-watches-m-2x.avif 780w, assets/portfolio/lookup-watches-m-3x.avif 1170w, assets/portfolio/lookup-watches-m-4x.avif 1560w" sizes="100vw" width="390" height="352">
+                            <source media="(max-width: 640px)" srcset="assets/portfolio/lookup-watches-m.jpg" width="390" height="352">
+                            <source type="image/avif" srcset="assets/portfolio/lookup-watches-1x.avif?v=2 1440w, assets/portfolio/lookup-watches-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                            <img src="assets/portfolio/lookup-watches.jpg?v=2" width="1440" height="980" loading="lazy" alt="Look Up Apple Watch faces and a sky widget">
+                        </picture>
+                    </div>
+                </figure>
+            </div>
         </section>
 
     </main>

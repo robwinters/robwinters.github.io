@@ -1,6 +1,6 @@
 /* ============================================================
    Portfolio — simple version (built from Paper "Portfolio — Simple")
-   Desktop layout. Phone layout still to come.
+   Desktop layout first, then narrower windows and phones at the end.
    ============================================================ */
 
 :root {
@@ -159,6 +159,11 @@ a:hover {
     color: var(--color-secondary);
 }
 
+.site-header .who-text {
+    display: flex;
+    gap: 12px;
+}
+
 .intro {
     display: flex;
     flex-direction: column;
@@ -294,6 +299,11 @@ a:hover {
     color: var(--color-secondary);
 }
 
+/* Dates and role: two lines here, one line on phones */
+.meta p span {
+    display: block;
+}
+
 .story-text {
     display: flex;
     flex-direction: column;
@@ -391,6 +401,13 @@ picture {
     min-width: 0;
 }
 
+/* Panels that sit closer together on phones (RowPal) */
+.panel-group {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
 /* ------------------------------------------------------------
    Breakout: panels grow past the 960px text column on wider
    windows, up to 1440px, leaving at least 48px each side.
@@ -442,10 +459,36 @@ picture {
 
 /* Screen recordings sit over the screen in a panel image. Each
    video's position and corner radius are measured from the Paper
-   export and set on the video itself. */
+   export, as percentages of the panel. */
 .screen-video {
     position: absolute;
     object-fit: cover;
+}
+
+.video-prototype {
+    left: 8.287%;
+    top: 8.366%;
+    width: 83.449%;
+    height: 83.191%;
+    border-radius: 1.373% / 2.316%;
+    outline: 1px solid #c6c6c6;
+    outline-offset: -1px;
+}
+
+.video-rowpal {
+    left: 25.706%;
+    top: 8.185%;
+    width: 48.776%;
+    height: 83.667%;
+    border-radius: 14.48% / 6.64%;
+}
+
+.video-lookup {
+    left: 14.421%;
+    top: 11.048%;
+    width: 20.347%;
+    height: 77.864%;
+    border-radius: 10.47% / 4.82%;
 }
 
 /* ------------------------------------------------------------
@@ -457,4 +500,253 @@ picture {
     justify-content: space-between;
     align-items: baseline;
     padding-top: 40px;
+}
+
+/* ------------------------------------------------------------
+   Narrower windows (940px and below): labels and project
+   details sit above their text instead of beside it
+   ------------------------------------------------------------ */
+
+@media (max-width: 940px) {
+    .row,
+    .story,
+    .highlight {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .story {
+        gap: 20px;
+    }
+
+    .row > .label,
+    .meta,
+    .highlight > .label {
+        width: auto;
+    }
+
+    .story-text,
+    .skills p {
+        width: auto;
+        max-width: var(--measure);
+    }
+}
+
+/* ------------------------------------------------------------
+   Phones (640px and below), from Paper "Portfolio — Mobile".
+   The <picture> elements switch to the phone versions of the
+   rearranged panels at the same width.
+   ------------------------------------------------------------ */
+
+@media (max-width: 640px) {
+    :root {
+        --radius-panel: 0px;
+    }
+
+    .top {
+        padding: 20px 24px 0;
+    }
+
+    .page {
+        padding: 40px 24px 64px;
+    }
+
+    /* Header: title under the name; the email address is in the footer */
+    .site-header .who-text {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .site-header .title {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .site-header > a {
+        display: none;
+    }
+
+    .site-header {
+        padding-bottom: 0;
+    }
+
+    .intro {
+        gap: 24px;
+        padding: 56px 0 48px;
+    }
+
+    .intro .statement {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .body,
+    .role-text,
+    .text-link,
+    .skills p {
+        font-size: 17px;
+        line-height: 28px;
+    }
+
+    .lead {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .row {
+        gap: 8px;
+        padding-top: 24px;
+    }
+
+    .row > .label {
+        line-height: 20px;
+    }
+
+    .skills {
+        padding-bottom: 24px;
+    }
+
+    .career {
+        gap: 16px;
+        padding-bottom: 56px;
+    }
+
+    .career ol {
+        gap: 20px;
+    }
+
+    .career li {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .career .years {
+        width: auto;
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .career .role {
+        font-size: 17px;
+        line-height: 26px;
+    }
+
+    .career .note {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .work {
+        gap: 32px;
+        padding: 24px 0 72px;
+    }
+
+    .story-text {
+        gap: 20px;
+    }
+
+    .meta {
+        gap: 2px;
+    }
+
+    .meta h2 {
+        line-height: 26px;
+    }
+
+    .meta p span {
+        display: inline;
+    }
+
+    .meta p span + span::before {
+        content: "· ";
+    }
+
+    .my-role,
+    .tools {
+        padding-top: 8px;
+    }
+
+    .highlight {
+        padding-top: 8px;
+    }
+
+    .highlight > .label {
+        line-height: 20px;
+    }
+
+    .highlight .story-text {
+        gap: 16px;
+    }
+
+    .tools div {
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .tools .label {
+        width: 64px;
+        line-height: 26px;
+    }
+
+    /* Panels run edge to edge; captions keep the text margins */
+    .breakout {
+        width: calc(100% + 48px);
+        margin-left: -24px;
+    }
+
+    figure {
+        gap: 10px;
+    }
+
+    .caption {
+        padding: 0 24px;
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .panel--outline {
+        outline: none;
+    }
+
+    .breakout.pair {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .breakout.pair > * {
+        flex: none;
+    }
+
+    .panel-group,
+    .panel-group .breakout.pair {
+        gap: 12px;
+    }
+
+    .play {
+        padding: 10px 30px;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .video-prototype {
+        left: 4.103%;
+        top: 7.937%;
+        width: 91.795%;
+        height: 84.226%;
+        border-radius: 1.676% / 2.830%;
+    }
+
+    .video-lookup {
+        left: 26.603%;
+        top: 3.465%;
+        width: 46.795%;
+        height: 49.134%;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding-top: 24px;
+    }
 }
