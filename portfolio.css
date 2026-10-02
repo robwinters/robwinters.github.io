@@ -401,6 +401,13 @@ picture {
     display: contents;
 }
 
+/* Without this, each <source> becomes an empty item in flex rows and adds
+   an extra gap (it pushed the header photo 12px in). Hiding it doesn't
+   change which image the browser picks. */
+picture source {
+    display: none;
+}
+
 .panel--outline {
     outline: 1px solid #e3e3e3;
 }
