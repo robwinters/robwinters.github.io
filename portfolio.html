@@ -7,10 +7,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portfolio.css?v=13">
+    <link rel="stylesheet" href="portfolio.css?v=14">
 </head>
 <body>
-<div class="top">
+<nav class="page-nav" aria-label="Sections">
+    <a href="#intro" style="--i: 0"><span class="tick"><span class="fill"></span></span><span class="name">Intro</span></a>
+    <a href="#hailo" style="--i: 1; --dot: var(--color-brand-hailo)"><span class="tick"><span class="fill"></span></span><span class="name">Hailo</span></a>
+    <a href="#trainline" style="--i: 2; --dot: var(--color-brand-trainline)"><span class="tick"><span class="fill"></span></span><span class="name">Trainline</span></a>
+    <a href="#hedgehog" style="--i: 3; --dot: var(--color-brand-hedgehog)"><span class="tick"><span class="fill"></span></span><span class="name">Hedgehog</span></a>
+    <a href="#rowpal" style="--i: 4; --dot: var(--color-brand-rowpal)"><span class="tick"><span class="fill"></span></span><span class="name">RowPal</span></a>
+    <a href="#lookup" style="--i: 5; --dot: var(--color-lookup-bg)"><span class="tick"><span class="fill"></span></span><span class="name">Look Up</span></a>
+</nav>
+
+<div class="top" id="intro">
 <div class="column">
 
     <header class="site-header">
@@ -413,6 +422,76 @@
             video.currentTime = 0;
             button.focus();
         });
+    })();
+
+    // Section navigation: marks the section you're in and how far through it
+    // you are. Each section runs from where its top meets the reading line
+    // (40% down the window) to where the next one does; the last one ends
+    // at the bottom of the page.
+    (function () {
+        var nav = document.querySelector('.page-nav');
+        if (!nav) return;
+        var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+        var sections = links.map(function (a) { return document.querySelector(a.hash); });
+        var wide = matchMedia('(min-width: 1280px)');
+        var starts = [];
+        var current = -1;
+        var queued = false;
+        var hideName;
+
+        function measure() {
+            starts = sections.map(function (s) {
+                return s.getBoundingClientRect().top + scrollY - innerHeight * 0.4;
+            });
+            starts[0] = 0;
+        }
+
+        function update() {
+            queued = false;
+            if (!wide.matches) return;
+            var y = scrollY;
+            var end = document.documentElement.scrollHeight - innerHeight;
+            var now = 0;
+            starts.forEach(function (start, i) { if (y >= start) now = i; });
+
+            links.forEach(function (a, i) {
+                var from = starts[i];
+                var to = i + 1 < starts.length ? starts[i + 1] : end;
+                var progress = Math.min(1, Math.max(0, (y - from) / (to - from)));
+                a.style.setProperty('--progress', progress.toFixed(4));
+                a.classList.toggle('is-active', i === now);
+                a.classList.toggle('is-past', i < now);
+                if (i === now) a.setAttribute('aria-current', 'location');
+                else a.removeAttribute('aria-current');
+            });
+
+            if (now !== current) {
+                if (current !== -1) {
+                    nav.classList.add('is-announcing');
+                    clearTimeout(hideName);
+                    hideName = setTimeout(function () { nav.classList.remove('is-announcing'); }, 1400);
+                }
+                current = now;
+            }
+        }
+
+        function queue() {
+            if (queued) return;
+            queued = true;
+            requestAnimationFrame(update);
+        }
+
+        function remeasure() {
+            measure();
+            queue();
+        }
+
+        addEventListener('scroll', queue, { passive: true });
+        addEventListener('resize', remeasure);
+        addEventListener('load', remeasure);
+        wide.addEventListener('change', remeasure);
+        if ('ResizeObserver' in window) new ResizeObserver(remeasure).observe(document.body);
+        remeasure();
     })();
 </script>
 </body>

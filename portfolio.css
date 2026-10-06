@@ -589,6 +589,195 @@ picture source {
 }
 
 /* ------------------------------------------------------------
+   Section navigation (wide windows only): a short line per section
+   in the 48px margin beside the panels. The current section's line
+   grows and fills with its brand colour as you scroll through it.
+   Lines for sections you've passed turn darker. Pointing at the
+   lines opens a small frosted panel with the names. Only the lines
+   respond to the pointer, so the hidden names never block clicks on
+   the page underneath. The script at the end of the page sets
+   --progress and the is-active, is-past and is-announcing classes.
+   ------------------------------------------------------------ */
+
+.page-nav {
+    display: none;
+}
+
+@media (min-width: 1280px) {
+    .page-nav {
+        --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+        --tick:      #d0d3cd;
+        --tick-past: #9b9e98;
+        --frost:     rgb(255 255 255 / 0.82);
+        position: fixed;
+        z-index: 10;
+        top: 50%;
+        left: max(16px, (100vw - 1440px) / 2 - 64px);
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        pointer-events: none;
+    }
+
+    /* Frosted panel behind the names */
+    .page-nav::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: -10px -6px -10px -12px;
+        border-radius: 12px;
+        background: var(--frost);
+        -webkit-backdrop-filter: blur(16px) saturate(1.4);
+        backdrop-filter: blur(16px) saturate(1.4);
+        box-shadow: 0 1px 2px rgb(0 0 0 / 0.05), 0 12px 32px -8px rgb(0 0 0 / 0.14);
+        opacity: 0;
+        transform: scale(0.96);
+        transform-origin: left center;
+        transition: opacity 0.25s ease, transform 0.45s var(--ease-out);
+    }
+
+    .page-nav:hover::before,
+    .page-nav:focus-within::before {
+        opacity: 1;
+        transform: none;
+    }
+
+    .page-nav a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        height: 24px;
+        padding-right: 14px;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 500;
+        color: var(--color-secondary);
+        animation: page-nav-in 0.7s var(--ease-out) both;
+        animation-delay: calc(300ms + var(--i) * 50ms);
+    }
+
+    /* The pointer target: the strip of margin the lines sit in */
+    .page-nav a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -16px;
+        width: 60px;
+        pointer-events: auto;
+    }
+
+    .page-nav:hover a,
+    .page-nav:focus-within a {
+        pointer-events: auto;
+    }
+
+    .page-nav a:hover {
+        text-decoration: none;
+    }
+
+    .page-nav a:focus-visible {
+        outline: 2px solid var(--color-link);
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+
+    .page-nav .tick {
+        position: relative;
+        flex-shrink: 0;
+        width: 10px;
+        height: 2px;
+        border-radius: 1px;
+        background: var(--tick);
+        overflow: hidden;
+        transition: width 0.5s var(--ease-out), background-color 0.3s ease;
+    }
+
+    .page-nav .fill {
+        position: absolute;
+        inset: 0;
+        background: var(--dot, var(--color-ink));
+        transform-origin: left;
+        transform: scaleX(var(--progress, 0));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .page-nav a.is-past .tick {
+        background: var(--tick-past);
+    }
+
+    .page-nav a.is-active .tick {
+        width: 28px;
+        background: var(--tick);
+    }
+
+    .page-nav a.is-active .fill {
+        opacity: 1;
+    }
+
+    .page-nav a:not(.is-active):hover .tick {
+        width: 18px;
+        background: var(--color-secondary);
+    }
+
+    .page-nav .name {
+        margin-left: -8px;
+        padding: 2px 8px;
+        border-radius: 6px;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateX(-6px);
+        transition: opacity 0.2s ease, transform 0.4s var(--ease-out), color 0.2s ease, background-color 0.2s ease;
+    }
+
+    /* Names slide in one after another */
+    .page-nav:hover .name,
+    .page-nav:focus-within .name {
+        opacity: 1;
+        transform: none;
+        transition-delay: calc(var(--i) * 30ms);
+    }
+
+    /* Entering a new section shows its name for a moment, on its own
+       small frosted label so it can be read over a picture */
+    .page-nav.is-announcing a.is-active .name {
+        opacity: 1;
+        transform: none;
+    }
+
+    .page-nav.is-announcing:not(:hover) a.is-active .name {
+        background: var(--frost);
+        -webkit-backdrop-filter: blur(16px) saturate(1.4);
+        backdrop-filter: blur(16px) saturate(1.4);
+    }
+
+    .page-nav a.is-active .name,
+    .page-nav a:hover .name {
+        color: var(--color-ink);
+    }
+}
+
+@keyframes page-nav-in {
+    from {
+        opacity: 0;
+        transform: translateX(-8px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-nav::before,
+    .page-nav a,
+    .page-nav .tick,
+    .page-nav .fill,
+    .page-nav .name {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* ------------------------------------------------------------
    Narrower windows (940px and below): labels and project
    details sit above their text instead of beside it
    ------------------------------------------------------------ */
