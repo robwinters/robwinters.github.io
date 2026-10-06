@@ -590,7 +590,7 @@ picture source {
 
 /* ------------------------------------------------------------
    Section navigation (wide windows only): a short line per section
-   in the 48px margin beside the panels. The current section's line
+   close to the left edge of the window. The current section's line
    grows and fills with its brand colour as you scroll through it.
    Lines for sections you've passed turn darker. Pointing at the
    lines opens a small frosted panel with the names. Only the lines
@@ -612,7 +612,7 @@ picture source {
         position: fixed;
         z-index: 10;
         top: 50%;
-        left: max(16px, (100vw - 1440px) / 2 - 64px);
+        left: 12px;
         transform: translateY(-50%);
         display: flex;
         flex-direction: column;
@@ -624,7 +624,7 @@ picture source {
         content: "";
         position: absolute;
         z-index: -1;
-        inset: -10px -6px -10px -12px;
+        inset: -10px -6px -10px -8px;
         border-radius: 12px;
         background: var(--frost);
         -webkit-backdrop-filter: blur(16px) saturate(1.4);
@@ -665,7 +665,7 @@ picture source {
         position: absolute;
         top: 0;
         bottom: 0;
-        left: -16px;
+        left: -12px;
         width: 60px;
         pointer-events: auto;
     }
