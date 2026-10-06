@@ -211,7 +211,7 @@ a:hover {
 }
 
 .career {
-    padding-bottom: 120px;
+    padding-bottom: 40px;
 }
 
 .career ol {
@@ -249,6 +249,64 @@ a:hover {
     font-size: 15px;
     line-height: 24px;
     color: var(--color-secondary);
+}
+
+/* Side projects: app icon on the left, name, description and links beside it */
+.side-projects {
+    padding-bottom: 120px;
+}
+
+.side-projects ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 62px;
+    flex: 1;
+}
+
+.side-projects li {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    column-gap: 16px;
+    align-items: start;
+}
+
+.side-projects img {
+    grid-row: 1 / span 2;
+    width: 88px;
+    height: 88px;
+}
+
+.side-projects h3 {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 600;
+}
+
+.side-projects .app-text p {
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.app-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.app-links a {
+    padding: 2px 8px;
+    border-radius: 4px;
+    outline: 1px solid rgb(0 0 0 / 0.14);
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--color-ink);
+}
+
+.app-links a:hover {
+    text-decoration: none;
+    background: rgb(0 0 0 / 0.05);
 }
 
 /* ------------------------------------------------------------
@@ -629,7 +687,7 @@ picture source {
 
     .career {
         gap: 16px;
-        padding-bottom: 56px;
+        padding-bottom: 24px;
     }
 
     .career ol {
@@ -655,6 +713,53 @@ picture source {
     .career .note {
         font-size: 14px;
         line-height: 22px;
+    }
+
+    /* Side projects: links move to their own line under the icon */
+    .side-projects {
+        gap: 16px;
+        padding-bottom: 56px;
+    }
+
+    .side-projects ul {
+        gap: 28px;
+    }
+
+    .side-projects li {
+        grid-template-columns: 64px 1fr;
+        column-gap: 14px;
+        align-items: center;
+    }
+
+    .side-projects img {
+        grid-row: auto;
+        width: 64px;
+        height: 64px;
+    }
+
+    .side-projects .app-text {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .side-projects h3 {
+        font-size: 17px;
+        line-height: 24px;
+    }
+
+    .side-projects .app-text p {
+        line-height: 22px;
+    }
+
+    .app-links {
+        grid-column: 1 / -1;
+        gap: 8px;
+        padding-top: 12px;
+    }
+
+    .app-links a {
+        padding: 5px 12px;
     }
 
     .work {
