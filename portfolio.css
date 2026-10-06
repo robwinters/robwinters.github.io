@@ -45,6 +45,13 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* "More info" links glide down to the case study */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
 a {
     color: var(--color-link);
     text-decoration: none;
