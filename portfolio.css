@@ -642,11 +642,13 @@ picture source {
         transform: none;
     }
 
+    /* Lines sit in a 28px slot so the names line up whatever their length */
     .page-nav a {
         position: relative;
-        display: flex;
+        display: grid;
+        grid-template-columns: 28px auto;
         align-items: center;
-        gap: 14px;
+        column-gap: 14px;
         height: 24px;
         padding-right: 14px;
         font-size: 13px;
