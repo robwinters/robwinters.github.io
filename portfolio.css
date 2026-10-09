@@ -119,6 +119,15 @@ a:hover {
     color: var(--color-ink);
 }
 
+/* Bullets between the items in each "My role" list take the project's colour */
+.role-text .bullet {
+    color: var(--bullet, currentColor);
+}
+
+#hailo     { --bullet: var(--color-brand-hailo); }
+#trainline { --bullet: var(--color-brand-trainline); }
+#hedgehog  { --bullet: var(--color-brand-hedgehog); }
+
 .text-link {
     font-size: 18px;
     line-height: 30px;
