@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portfolio.css?v=16">
+    <link rel="stylesheet" href="portfolio.css?v=24">
 </head>
 <body>
 <nav class="page-nav" aria-label="Sections">
@@ -47,7 +47,7 @@
         <h2 class="label">Career</h2>
         <ol>
             <li><span class="years">2021 – Now</span><div><p class="role">Head of Design, Hedgehog → Inveniam</p><p class="note">Reporting to CTO. Building an agentic SaaS platform for private markets.</p></div></li>
-            <li><span class="years">2020 – 2021</span><div><p class="role role--plain">Time off to write a book</p></div></li>
+            <li><span class="years">2020 – 2021</span><div><p class="role role--plain">Time off to <a href="https://www.amazon.co.uk/His-Name-was-Wren-small-town-ebook/dp/B08KGVNVNB">write a book</a></p></div></li>
             <li><span class="years">2016 – 2020</span><div><p class="role">Head of Design, Trainline</p><p class="note">Reporting to CPO. Scaled team from 3 to 20+. Oversaw design through a rebrand, European expansion, and IPO.</p></div></li>
             <li><span class="years">2011 – 2016</span><div><p class="role">Head of Design, Hailo</p><p class="note">Reporting to CPO. Founding designer. From zero to millions of customers in 16 cities.</p></div></li>
             <li><span class="years">2004 – 2011</span><div><p class="role">Lead Designer, Tarsus Group</p><p class="note">A portfolio of international brands across aviation, medical, and manufacturing sectors.</p></div></li>
@@ -123,19 +123,59 @@
                 </div>
             </div>
 
-            <figure class="breakout">
+            <figure class="breakout carousel" aria-roledescription="carousel" aria-label="Hailo design work">
                 <div class="panel">
-                    <picture>
-                        <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/hailo-collage-m-2x.avif 780w, assets/portfolio/hailo-collage-m-3x.avif 1170w, assets/portfolio/hailo-collage-m-4x.avif 1560w" sizes="100vw" width="390" height="926">
-                        <source media="(max-width: 640px)" srcset="assets/portfolio/hailo-collage-m.jpg" width="390" height="926">
-                        <source type="image/avif" srcset="assets/portfolio/hailo-collage-1x.avif?v=2 1440w, assets/portfolio/hailo-collage-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
-                        <img src="assets/portfolio/hailo-collage.jpg?v=2" width="1440" height="962" loading="lazy" alt="Hailo taxi illustrations, passenger app screens, a user flow diagram, and the Back in Black campaign">
-                    </picture>
+                    <ul class="carousel-track" tabindex="0">
+                        <li class="carousel-slide" data-caption="Hailo branding by <a href='https://darencookdesign.myportfolio.com/' target='_blank' rel='noopener'>Daren Cook Design</a>." aria-label="1 of 5">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/hailo-logo-1x.avif?v=3 1440w, assets/portfolio/hailo-logo-2x.avif?v=3 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/hailo-logo.jpg?v=3" width="1440" height="860" loading="lazy" alt="The Hailo logo">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="The Hailo passenger app." aria-label="2 of 5">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/hailo-app-1x.avif?v=3 1440w, assets/portfolio/hailo-app-2x.avif?v=3 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/hailo-app.jpg?v=3" width="1440" height="860" loading="lazy" alt="Two Hailo passenger app screens: choosing a pickup point on a map of taxis, and the driver arriving">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="Created taxi illustrations for each city we launched in." aria-label="3 of 5">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/hailo-cars-1x.avif?v=3 1440w, assets/portfolio/hailo-cars-2x.avif?v=3 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/hailo-cars.jpg?v=3" width="1440" height="860" loading="lazy" alt="Five illustrated taxis, each in a different city’s livery">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="Supported marketing with outdoor and print campaigns." aria-label="4 of 5">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/hailo-campaign-1x.avif?v=3 1440w, assets/portfolio/hailo-campaign-2x.avif?v=3 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/hailo-campaign.jpg?v=3" width="1440" height="860" loading="lazy" alt="A Back in Black billboard, and a Hailo black cab with its passenger waving from the window">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="One of many user flow diagrams I created at Hailo." aria-label="5 of 5">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/hailo-flow-1x.avif?v=4 1440w, assets/portfolio/hailo-flow-2x.avif?v=4 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/hailo-flow.jpg?v=4" width="1440" height="860" loading="lazy" alt="A user flow diagram for booking a black car">
+                            </picture>
+                        </li>
+                    </ul>
                 </div>
+                <figcaption class="carousel-controls">
+                    <p class="caption"><span class="carousel-count" aria-hidden="true">01 / 05</span> <span class="carousel-caption" aria-live="polite">Hailo branding by <a href='https://darencookdesign.myportfolio.com/' target='_blank' rel='noopener'>Daren Cook Design</a>.</span></p>
+                    <div class="carousel-pager">
+                        <div class="carousel-bars">
+                            <button class="carousel-bar" type="button" aria-label="Show slide 1"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 2"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 3"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 4"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 5"></button>
+                        </div>
+                        <button class="carousel-arrow" type="button" data-step="-1" aria-label="Previous slide" disabled><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" /></svg></button>
+                        <button class="carousel-arrow" type="button" data-step="1" aria-label="Next slide"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" /></svg></button>
+                    </div>
+                </figcaption>
             </figure>
 
             <div class="highlight">
-                <h3 class="label">Highlight</h3>
+                <h3 class="label"><span class="marker">Highlight</span></h3>
                 <div class="story-text">
                     <p class="lead">Apple Watch Release</p>
                     <p class="body">In November 2014, we were given early access to Apple WatchKit to build the Hailo Watch app. In early 2015, I was invited to Apple HQ with an engineer to test the app on-device, in secret.</p>
@@ -144,25 +184,123 @@
             </div>
 
             <figure class="breakout">
-                <div class="panel">
+                <div class="panel panel--watch">
                     <picture>
-                        <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/hailo-hig-m-2x.avif 780w, assets/portfolio/hailo-hig-m-3x.avif 1170w, assets/portfolio/hailo-hig-m-4x.avif 1560w" sizes="100vw" width="390" height="308">
-                        <source media="(max-width: 640px)" srcset="assets/portfolio/hailo-hig-m.jpg" width="390" height="308">
-                        <source type="image/avif" srcset="assets/portfolio/hailo-hig-1x.avif?v=2 1440w, assets/portfolio/hailo-hig-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
-                        <img src="assets/portfolio/hailo-hig.jpg?v=2" width="1440" height="1012" loading="lazy" alt="The Hailo app in Apple’s Human Interface Guidelines for Apple Watch">
+                        <source type="image/avif" srcset="assets/portfolio/hailo-watch-1x.avif 1440w, assets/portfolio/hailo-watch-2x.avif 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                        <img src="assets/portfolio/hailo-watch.jpg" width="1440" height="760" loading="lazy" alt="Three Hailo Apple Watch screens under the Hailo app icon">
                     </picture>
                 </div>
-                <figcaption class="caption">Hailo in the HIG.</figcaption>
+                <figcaption class="caption">The Hailo watch app in Apple’s Human Interface Guidelines, 2015.</figcaption>
             </figure>
 
+            <div class="highlight">
+                <h3 class="label">Passengers</h3>
+                <div class="story-text quotes">
+                    <figure class="quote">
+                        <blockquote class="lead">“Just used Hailo for the first time. Sufficiently indistinguishable from magic.”</blockquote>
+                        <figcaption class="caption">@tomhannen on Twitter, 2013</figcaption>
+                    </figure>
+                    <div class="carousel carousel--quotes" aria-roledescription="carousel" aria-label="More passenger quotes">
+                        <ul class="carousel-track" tabindex="0">
+                            <li class="carousel-slide" aria-label="1 of 6">
+                                <div class="quote-pair">
+                                    <figure class="quote quote--small">
+                                        <blockquote>“Took me and gf to hospital after waters broke and brought us home with my new son. Thanks Hailo.”</blockquote>
+                                        <figcaption class="caption">@rawedge, 2012</figcaption>
+                                    </figure>
+                                    <figure class="quote quote--small">
+                                        <blockquote>“Enjoying first Hailo experience. If there is a world UX championship, this a serious contender. Superb.”</blockquote>
+                                        <figcaption class="caption">Hugo Rodger-Brown, 2012</figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li class="carousel-slide" aria-label="2 of 6">
+                                <div class="quote-pair">
+                                    <figure class="quote quote--small">
+                                        <blockquote>“Forget Apple. If you want extraordinary customer experience, passengers &amp; cabbies – Hailo.”</blockquote>
+                                        <figcaption class="caption">Mark Littlewood, 2012</figcaption>
+                                    </figure>
+                                    <figure class="quote quote--small">
+                                        <blockquote>“Got a black cab 1 min after hitting Hailo’s magic button, thwarting tourists &amp; a fancy hotel concierge. Hate to say ‘disruption’ but dang.”</blockquote>
+                                        <figcaption class="caption">Matthew Ogle, 2012</figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li class="carousel-slide" aria-label="3 of 6">
+                                <div class="quote-pair">
+                                    <figure class="quote quote--small">
+                                        <blockquote>“I’d read all about it, but Hailo still blew my mind last night. It’s superb. The cabbie waxed lyrical about it the entire journey!”</blockquote>
+                                        <figcaption class="caption">Tom Randle, 2012</figcaption>
+                                    </figure>
+                                    <figure class="quote quote--small">
+                                        <blockquote>“Tried Hailo tonight. Very slick. A good piece of UX work. I’m impressed.”</blockquote>
+                                        <figcaption class="caption">Ian Fenn, 2012</figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li class="carousel-slide" aria-label="4 of 6">
+                                <div class="quote-pair">
+                                    <figure class="quote quote--small">
+                                        <blockquote>“Combination of simple but powerful UI and quality of underlying real world service should be commonplace but, alas, isn’t.”</blockquote>
+                                        <figcaption class="caption">Stefan Czerniawski, 2012</figcaption>
+                                    </figure>
+                                    <figure class="quote quote--small">
+                                        <blockquote>“Why is your app just so good? It’s ridiculous! Adore it. Was working from London this week and Hailo’ing cabs with ease.”</blockquote>
+                                        <figcaption class="caption">Patrick Mooney, Dublin, 2012</figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li class="carousel-slide" aria-label="5 of 6">
+                                <div class="quote-pair">
+                                    <figure class="quote quote--small">
+                                        <blockquote>“What a bloody good app. Everyone download and you’ll see where the nearest black cabs are to you on a live map.”</blockquote>
+                                        <figcaption class="caption">Ellie Bennett, 2011</figcaption>
+                                    </figure>
+                                    <figure class="quote quote--small">
+                                        <blockquote>“Totally blown away by my first Hailo experience – awesome experience, fully recommended.”</blockquote>
+                                        <figcaption class="caption">Chris Morton, 2012</figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li class="carousel-slide" aria-label="6 of 6">
+                                <div class="quote-pair">
+                                    <figure class="quote quote--small">
+                                        <blockquote>“Yet again blown away by the wonder that is Hailo – if you’re in London, download it NOW.”</blockquote>
+                                        <figcaption class="caption">Emily R, 2012</figcaption>
+                                    </figure>
+                                    <figure class="quote quote--small">
+                                        <blockquote>“Literally couldn’t now live without Hailo.”</blockquote>
+                                        <figcaption class="caption">Dave Sherratt, 2012</figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="carousel-controls">
+                            <p class="caption"><span class="carousel-count">01 / 06</span></p>
+                            <div class="carousel-pager">
+                                <div class="carousel-bars">
+                                    <button class="carousel-bar" type="button" aria-label="Show quotes 1"></button>
+                                    <button class="carousel-bar" type="button" aria-label="Show quotes 2"></button>
+                                    <button class="carousel-bar" type="button" aria-label="Show quotes 3"></button>
+                                    <button class="carousel-bar" type="button" aria-label="Show quotes 4"></button>
+                                    <button class="carousel-bar" type="button" aria-label="Show quotes 5"></button>
+                                    <button class="carousel-bar" type="button" aria-label="Show quotes 6"></button>
+                                </div>
+                                <button class="carousel-arrow" type="button" data-step="-1" aria-label="Previous quotes" disabled><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" /></svg></button>
+                                <button class="carousel-arrow" type="button" data-step="1" aria-label="Next quotes"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" /></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <figure class="breakout">
-                <div class="panel panel--outline">
+                <div class="panel">
                     <picture>
-                        <source type="image/avif" srcset="assets/portfolio/hailo-tweets-1x.avif?v=2 1440w, assets/portfolio/hailo-tweets-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
-                        <img src="assets/portfolio/hailo-tweets.jpg?v=2" width="1440" height="810" loading="lazy" alt="Tweets from passengers praising Hailo, over a map of London covered in Hailo taxis">
+                        <source type="image/avif" srcset="assets/portfolio/hailo-map-1x.avif 1440w, assets/portfolio/hailo-map-2x.avif 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                        <img src="assets/portfolio/hailo-map.jpg" width="1440" height="810" loading="lazy" alt="A person in silhouette pointing at a large map of London covered in Hailo taxis and passengers">
                     </picture>
                 </div>
-                <figcaption class="caption">What passengers said about Hailo.</figcaption>
             </figure>
         </section>
 
@@ -184,38 +322,74 @@
                 </div>
             </div>
 
-            <figure class="breakout">
+            <figure class="breakout carousel" aria-roledescription="carousel" aria-label="Trainline design work">
                 <div class="panel">
-                    <picture>
-                        <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/trainline-concepts-m-2x.avif 780w, assets/portfolio/trainline-concepts-m-3x.avif 1170w, assets/portfolio/trainline-concepts-m-4x.avif 1560w" sizes="100vw" width="390" height="485">
-                        <source media="(max-width: 640px)" srcset="assets/portfolio/trainline-concepts-m.jpg" width="390" height="485">
-                        <source type="image/avif" srcset="assets/portfolio/trainline-concepts-1x.avif?v=2 1440w, assets/portfolio/trainline-concepts-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
-                        <img src="assets/portfolio/trainline-concepts.jpg?v=2" width="1440" height="900" loading="lazy" alt="Two journey concepts showing live train delays and onward travel options">
-                    </picture>
+                    <ul class="carousel-track" tabindex="0">
+                        <li class="carousel-slide" data-caption="Trainline rebrand by Koto and the in-house brand team, led by <a href='https://www.lisannepinfield.com/' target='_blank' rel='noopener'>Lisanne Pinfield</a>." aria-label="1 of 5">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/trainline-logo-1x.avif?v=3 1440w, assets/portfolio/trainline-logo-2x.avif?v=3 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/trainline-logo.jpg?v=3" width="1440" height="860" loading="lazy" alt="The Trainline logo">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="Examples of concepts I designed to test with users across Europe." aria-label="2 of 5">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/trainline-concepts-1x.avif?v=4 1440w, assets/portfolio/trainline-concepts-2x.avif?v=4 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/trainline-concepts.jpg?v=4" width="1440" height="860" loading="lazy" alt="Three journey concepts: a help chat, and live train delays with onward travel options">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="I designed the eticket format still used by all UK rail operators today." aria-label="3 of 5">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/trainline-tickets-1x.avif?v=4 1440w, assets/portfolio/trainline-tickets-2x.avif?v=4 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/trainline-tickets.jpg?v=4" width="1440" height="860" loading="lazy" alt="The Trainline eticket, as a print-at-home ticket and on a phone">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="Storyboards I drew for user research (and for fun)." aria-label="4 of 5">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/trainline-storyboards-1x.avif?v=3 1440w, assets/portfolio/trainline-storyboards-2x.avif?v=3 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/trainline-storyboards.jpg?v=3" width="1440" height="860" loading="lazy" alt="Hand-drawn storyboards of passengers planning trips with the app">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="The design team observing users in a usability lab in Milan." aria-label="5 of 5">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/trainline-research-1x.avif?v=3 1440w, assets/portfolio/trainline-research-2x.avif?v=3 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/trainline-research.jpg?v=3" width="1440" height="860" loading="lazy" alt="People at laptops during a research session">
+                            </picture>
+                        </li>
+                    </ul>
                 </div>
-                <figcaption class="caption">Examples of concepts I designed to test with users across Europe.</figcaption>
+                <figcaption class="carousel-controls">
+                    <p class="caption"><span class="carousel-count" aria-hidden="true">01 / 05</span> <span class="carousel-caption" aria-live="polite">Trainline rebrand by Koto and the in-house brand team, led by <a href='https://www.lisannepinfield.com/' target='_blank' rel='noopener'>Lisanne Pinfield</a>.</span></p>
+                    <div class="carousel-pager">
+                        <div class="carousel-bars">
+                            <button class="carousel-bar" type="button" aria-label="Show slide 1"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 2"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 3"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 4"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 5"></button>
+                        </div>
+                        <button class="carousel-arrow" type="button" data-step="-1" aria-label="Previous slide" disabled><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" /></svg></button>
+                        <button class="carousel-arrow" type="button" data-step="1" aria-label="Next slide"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" /></svg></button>
+                    </div>
+                </figcaption>
             </figure>
 
-            <div class="pair breakout">
-                <figure>
-                    <div class="panel">
+            <figure class="breakout">
+                <div class="pair pair--photos">
+                    <div class="panel" style="--w: 667">
                         <picture>
-                            <source type="image/avif" srcset="assets/portfolio/trainline-eticket-1x.avif?v=2 708w, assets/portfolio/trainline-eticket-2x.avif?v=2 1416w" sizes="(min-width: 1536px) 708px, (min-width: 1056px) calc(50vw - 56px), (min-width: 641px) calc(50vw - 32px), 100vw">
-                            <img src="assets/portfolio/trainline-eticket.jpg?v=2" width="708" height="630" loading="lazy" alt="The Trainline eticket, printed at home and on mobile">
+                            <source type="image/avif" srcset="assets/portfolio/trainline-workshop-1x.avif 667w, assets/portfolio/trainline-workshop-2x.avif 1334w" sizes="(min-width: 1536px) 667px, (min-width: 1056px) calc((100vw - 120px) * 0.471), (min-width: 641px) calc((100vw - 64px) * 0.471), 100vw">
+                            <img src="assets/portfolio/trainline-workshop.jpg" width="667" height="500" loading="lazy" alt="The design team in a workshop, with the new Trainline logo on screen">
                         </picture>
                     </div>
-                    <figcaption class="caption">Hands-on design: I designed the eticket format still used by all UK rail operators today.</figcaption>
-                </figure>
-                <figure>
-                    <div class="panel">
+                    <div class="panel" style="--w: 749">
                         <picture>
-                            <source type="image/avif" srcset="assets/portfolio/trainline-team-1x.avif?v=2 708w, assets/portfolio/trainline-team-2x.avif?v=2 1416w" sizes="(min-width: 1536px) 708px, (min-width: 1056px) calc(50vw - 56px), (min-width: 641px) calc(50vw - 32px), 100vw">
-                            <img src="assets/portfolio/trainline-team.jpg?v=2" width="708" height="630" loading="lazy" alt="Photos of the Trainline design team">
+                            <source type="image/avif" srcset="assets/portfolio/trainline-steps-1x.avif 749w, assets/portfolio/trainline-steps-2x.avif 1498w" sizes="(min-width: 1536px) 749px, (min-width: 1056px) calc((100vw - 120px) * 0.529), (min-width: 641px) calc((100vw - 64px) * 0.529), 100vw">
+                            <img src="assets/portfolio/trainline-steps.jpg" width="749" height="500" loading="lazy" alt="The Trainline design team sitting together on wooden steps">
                         </picture>
                     </div>
-                    <figcaption class="caption">Scaling design from 3 to 20+.</figcaption>
-                </figure>
-            </div>
+                </div>
+                <figcaption class="caption">Scaling design from 3 to 20+.</figcaption>
+            </figure>
         </section>
 
         <!-- ======================= Hedgehog & Inveniam ======================= -->
@@ -235,30 +409,71 @@
                 </div>
             </div>
 
-            <figure class="breakout">
+            <figure class="breakout carousel" aria-roledescription="carousel" aria-label="Hedgehog and Inveniam design work">
                 <div class="panel">
-                    <picture>
-                        <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/hedgehog-components-m-2x.avif 780w, assets/portfolio/hedgehog-components-m-3x.avif 1170w, assets/portfolio/hedgehog-components-m-4x.avif 1560w" sizes="100vw" width="390" height="680">
-                        <source media="(max-width: 640px)" srcset="assets/portfolio/hedgehog-components-m.jpg" width="390" height="680">
-                        <source type="image/avif" srcset="assets/portfolio/hedgehog-components-1x.avif?v=2 1440w, assets/portfolio/hedgehog-components-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
-                        <img src="assets/portfolio/hedgehog-components.jpg?v=2" width="1440" height="840" loading="lazy" alt="Design system components: filter chips, a date picker, a tree selection list, and an account menu">
-                    </picture>
+                    <ul class="carousel-track" tabindex="0">
+                        <li class="carousel-slide" data-caption="Hedgehog branding, created in-house." aria-label="1 of 7">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/hedgehog-logo-1x.avif?v=3 1440w, assets/portfolio/hedgehog-logo-2x.avif?v=3 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/hedgehog-logo.jpg?v=3" width="1440" height="860" loading="lazy" alt="The Hedgehog logo">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="An early concept for the investment portfolio." aria-label="2 of 7">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/hedgehog-portfolio-1x.avif?v=4 1440w, assets/portfolio/hedgehog-portfolio-2x.avif?v=4 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/hedgehog-portfolio.jpg?v=4" width="1440" height="860" loading="lazy" alt="The Hedgehog portfolio screen with a chart of investment value">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="Mobile web app designs." aria-label="3 of 7">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/hedgehog-phones-1x.avif?v=4 1440w, assets/portfolio/hedgehog-phones-2x.avif?v=4 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/hedgehog-phones.jpg?v=4" width="1440" height="860" loading="lazy" alt="Hedgehog phone screens: a signed subscription agreement and a fund’s token details">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="Inveniam branding, created in-house by <a href='https://www.lisannepinfield.com/' target='_blank' rel='noopener'>Lisanne Pinfield</a>." aria-label="4 of 7">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/inveniam-logo-1x.avif?v=3 1440w, assets/portfolio/inveniam-logo-2x.avif?v=3 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/inveniam-logo.jpg?v=3" width="1440" height="860" loading="lazy" alt="The Inveniam logo">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="Design for the Inveniam data room." aria-label="5 of 7">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/inveniam-files-1x.avif?v=4 1440w, assets/portfolio/inveniam-files-2x.avif?v=4 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/inveniam-files.jpg?v=4" width="1440" height="860" loading="lazy" alt="An Inveniam folder tree of files from Google Drive and Dropbox">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide" data-caption="Created and maintained a robust design system." aria-label="6 of 7">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/hedgehog-components-1x.avif?v=3 1440w, assets/portfolio/hedgehog-components-2x.avif?v=3 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/hedgehog-components.jpg?v=3" width="1440" height="860" loading="lazy" alt="Design system components: filter chips, a date picker, a tree selection list, and an account menu">
+                            </picture>
+                        </li>
+                        <li class="carousel-slide prototype" data-caption="A prototype I built using Cursor to demo ideas around filtering, table management, and viewing documents. Dummy data." aria-label="7 of 7">
+                            <picture>
+                                <source type="image/avif" srcset="assets/portfolio/hedgehog-prototype-1x.avif?v=3 1440w, assets/portfolio/hedgehog-prototype-2x.avif?v=3 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
+                                <img src="assets/portfolio/hedgehog-prototype.jpg?v=3" width="1440" height="860" loading="lazy" alt="Files screen from a prototype built with Cursor">
+                            </picture>
+                            <video class="screen-video video-prototype" src="assets/portfolio/hedgehog-prototype.mp4" controls playsinline preload="none" hidden aria-label="Screen recording of the prototype: filtering files, managing the table, and viewing documents"></video>
+                            <button class="play" type="button">Play Prototype</button>
+                        </li>
+                    </ul>
                 </div>
-                <figcaption class="caption">Design system components: filter chips, date picker, and tree selection.</figcaption>
-            </figure>
-
-            <figure class="breakout">
-                <div class="panel prototype">
-                    <picture>
-                        <source media="(max-width: 640px)" type="image/avif" srcset="assets/portfolio/hedgehog-prototype-m-2x.avif 780w, assets/portfolio/hedgehog-prototype-m-3x.avif 1170w, assets/portfolio/hedgehog-prototype-m-4x.avif 1560w" sizes="100vw" width="390" height="252">
-                        <source media="(max-width: 640px)" srcset="assets/portfolio/hedgehog-prototype-m.jpg" width="390" height="252">
-                        <source type="image/avif" srcset="assets/portfolio/hedgehog-prototype-1x.avif?v=2 1440w, assets/portfolio/hedgehog-prototype-2x.avif?v=2 2880w" sizes="(min-width: 1536px) 1440px, (min-width: 1056px) calc(100vw - 96px), (min-width: 641px) calc(100vw - 48px), 100vw">
-                        <img src="assets/portfolio/hedgehog-prototype.jpg?v=2" width="1440" height="856" loading="lazy" alt="Files screen from a prototype built with Cursor">
-                    </picture>
-                    <video class="screen-video video-prototype" src="assets/portfolio/hedgehog-prototype.mp4" controls playsinline preload="none" hidden aria-label="Screen recording of the prototype: filtering files, managing the table, and viewing documents"></video>
-                    <button class="play" type="button">Play Prototype</button>
-                </div>
-                <figcaption class="caption">A prototype built using Cursor to demo ideas around filtering, table management, and viewing documents. Dummy data.</figcaption>
+                <figcaption class="carousel-controls">
+                    <p class="caption"><span class="carousel-count" aria-hidden="true">01 / 07</span> <span class="carousel-caption" aria-live="polite">Hedgehog branding, created in-house.</span></p>
+                    <div class="carousel-pager">
+                        <div class="carousel-bars">
+                            <button class="carousel-bar" type="button" aria-label="Show slide 1"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 2"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 3"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 4"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 5"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 6"></button>
+                            <button class="carousel-bar" type="button" aria-label="Show slide 7"></button>
+                        </div>
+                        <button class="carousel-arrow" type="button" data-step="-1" aria-label="Previous slide" disabled><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" /></svg></button>
+                        <button class="carousel-arrow" type="button" data-step="1" aria-label="Next slide"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" /></svg></button>
+                    </div>
+                </figcaption>
             </figure>
         </section>
 
@@ -268,7 +483,7 @@
             <div class="story">
                 <div class="meta" style="--dot: var(--color-brand-rowpal)">
                     <h2>RowPal</h2>
-                    <p><span>iOS &amp; watchOS</span> <span>In final testing</span></p>
+                    <p><span>iOS &amp; watchOS</span> <span>Live on the <a href="https://apps.apple.com/app/rowpal/id6799178261">App Store</a></span></p>
                 </div>
                 <div class="story-text">
                     <p class="lead">RowPal is an iOS rowing app. It works with any rowing machine and allows rowers to race their previous best performances or a pace boat.</p>
@@ -319,7 +534,7 @@
             <div class="story">
                 <div class="meta" style="--dot: var(--color-lookup-bg)">
                     <h2>Look Up</h2>
-                    <p><span>iOS &amp; watchOS</span> <span>Live on the App Store</span></p>
+                    <p><span>iOS &amp; watchOS</span> <span>Live on the <a href="https://apps.apple.com/app/id6770934283">App Store</a></span></p>
                 </div>
                 <div class="story-text">
                     <p class="lead">The International Space Station is brightest at dusk and dawn as it moves across the sky, but it’s easy to miss. Unless you know where to look. Look Up tells you when it will be passing and how to locate it.</p>
@@ -361,6 +576,8 @@
         <a class="text-link" href="mailto:rawinters@gmail.com">rawinters@gmail.com</a>
     </footer>
 
+    <p class="colophon">This site was designed in <a href="https://paper.design/">Paper</a> and built by my buddy Claude.</p>
+
 </div>
 </div>
 <script>
@@ -398,7 +615,7 @@
         });
     })();
 
-    // Prototype: clicking the panel (or its button) swaps the still image for
+    // Prototype: clicking the slide (or its button) swaps the still image for
     // the video and plays it. When the video ends, the still and button return.
     (function () {
         var panel = document.querySelector('.prototype');
@@ -415,14 +632,134 @@
             video.play().catch(function () {});
             video.focus();
         });
-        video.addEventListener('ended', function () {
+        function stop() {
+            video.pause();
             video.hidden = true;
             button.hidden = false;
             panel.classList.remove('is-playing');
             video.currentTime = 0;
+        }
+        video.addEventListener('ended', function () {
+            stop();
             button.focus();
         });
+        // In a carousel: moving to another slide stops the video and puts the still back
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+                if (!video.hidden && entries[0].intersectionRatio < 0.5) stop();
+            }, { threshold: 0.5 }).observe(panel);
+        }
     })();
+
+    // "Highlight" labels: a highlighter stroke fills across them as they
+    // scroll up the window and empties as you scroll back. It starts filling
+    // when the label is 80% of the way down the window and is full at 55%.
+    // With reduced motion turned on, the labels are simply shown marked.
+    (function () {
+        var markers = Array.prototype.slice.call(document.querySelectorAll('.marker'));
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            markers.forEach(function (m) { m.style.setProperty('--mark', '1'); });
+            return;
+        }
+        var queued = false;
+        function update() {
+            queued = false;
+            markers.forEach(function (m) {
+                var top = m.getBoundingClientRect().top / innerHeight;   // 0 at the top of the window, 1 at the bottom
+                var amount = Math.min(1, Math.max(0, (0.8 - top) / 0.25));
+                m.style.setProperty('--mark', amount.toFixed(3));
+            });
+        }
+        function queue() {
+            if (queued) return;
+            queued = true;
+            requestAnimationFrame(update);
+        }
+        addEventListener('scroll', queue, { passive: true });
+        addEventListener('resize', queue);
+        update();
+    })();
+
+    // Carousels: the slides scroll sideways and snap into place, so swiping
+    // and trackpads work without any code. The arrows and bars scroll to a
+    // slide; the count, caption, bars and arrows follow whichever slide is
+    // showing. Left and right arrow keys work when the slides have focus.
+    document.querySelectorAll('.carousel').forEach(function (carousel) {
+        var track = carousel.querySelector('.carousel-track');
+        var slides = Array.prototype.slice.call(track.children);
+        var bars = carousel.querySelectorAll('.carousel-bar');
+        var arrows = carousel.querySelectorAll('.carousel-arrow');
+        var count = carousel.querySelector('.carousel-count');
+        var caption = carousel.querySelector('.carousel-caption');
+        var current = -1;
+        var target = 0;     // the slide being moved to; quick repeat clicks step on from here
+        var settling;
+
+        function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+        function show(i) {
+            clearTimeout(settling);
+            target = Math.max(0, Math.min(slides.length - 1, i));
+            track.scrollTo({ left: slides[target].offsetLeft - slides[0].offsetLeft });
+        }
+
+        function update() {
+            var width = track.clientWidth;
+            var i = Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / width)));
+            // Once scrolling has stopped, the slide on show is where the next click starts from
+            clearTimeout(settling);
+            settling = setTimeout(function () { target = i; }, 150);
+            if (i === current) return;
+            current = i;
+            count.textContent = pad(i + 1) + ' / ' + pad(slides.length);
+            if (caption) caption.innerHTML = slides[i].dataset.caption;   // may include a link
+            bars.forEach(function (bar, b) { bar.setAttribute('aria-current', b === i ? 'true' : 'false'); });
+            arrows[0].disabled = i === 0;
+            arrows[1].disabled = i === slides.length - 1;
+        }
+
+        arrows.forEach(function (arrow) {
+            arrow.addEventListener('click', function () { show(target + Number(arrow.dataset.step)); });
+        });
+        bars.forEach(function (bar, b) {
+            bar.addEventListener('click', function () { show(b); });
+        });
+        track.addEventListener('keydown', function (e) {
+            if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+            e.preventDefault();
+            show(target + (e.key === 'ArrowRight' ? 1 : -1));
+        });
+        track.addEventListener('scroll', update, { passive: true });
+        addEventListener('resize', function () { current = -1; update(); });
+        update();
+
+        // Nudge once, the first time most of the carousel is in view, so it's
+        // clear there's more to the side. Skipped if someone has already used
+        // it, or has reduced motion turned on.
+        var used = false;
+        function use() {
+            used = true;
+            track.classList.remove('is-nudging');
+        }
+        carousel.addEventListener('pointerdown', use);
+        carousel.addEventListener('keydown', use);
+        // Scrolling the page up or down with the pointer over the carousel
+        // doesn't count; only a sideways swipe does
+        carousel.addEventListener('wheel', function (e) {
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) use();
+        }, { passive: true });
+        track.addEventListener('animationend', function () { track.classList.remove('is-nudging'); });
+        if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            var seen = new IntersectionObserver(function (entries) {
+                if (!entries[0].isIntersecting) return;
+                seen.disconnect();
+                setTimeout(function () {
+                    if (!used && current === 0) track.classList.add('is-nudging');
+                }, 300);
+            }, { threshold: 0.6 });
+            seen.observe(track);
+        }
+    });
 
     // Section navigation: marks the section you're in and how far through it
     // you are. Each section runs from where its top meets the reading line

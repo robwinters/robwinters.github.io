@@ -402,6 +402,26 @@ a:hover {
     gap: 20px;
 }
 
+/* "Highlight" label: a highlighter-pen stroke fills across it, left to
+   right, as it scrolls up the window, and empties as you scroll back.
+   The page script sets --mark from 0 (empty) to 1 (full). The stroke is
+   a slightly uneven shape so it looks hand-drawn. */
+.marker {
+    position: relative;
+    isolation: isolate;
+    color: color-mix(in srgb, var(--color-ink) calc(var(--mark, 0) * 100%), var(--color-secondary));
+}
+
+.marker::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -1px -6px -1px -5px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20' preserveAspectRatio='none'%3E%3Cpath d='M3 4.5C22 3 55 4.2 97.5 2.8c1.2 3.5 1.6 9 .6 13.4C70 17.6 33 16.6 1.6 17.6.4 13.4.6 8.6 3 4.5z' fill='%23ffe66b'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    transform: rotate(-1.2deg);
+    clip-path: inset(0 calc(100% - var(--mark, 0) * 100%) 0 0);
+}
+
 .tools {
     display: flex;
     flex-direction: column;
@@ -506,8 +526,218 @@ picture source {
 }
 
 /* 16px gap at 960px wide, growing to 24px at 1440px */
-.breakout.pair {
+.breakout.pair,
+.breakout .pair {
     gap: clamp(16px, 16px + (100vw - 1056px) / 60, 24px);
+}
+
+/* Two photos of different widths at the same height: each grows in
+   proportion to its width in Paper (--w) */
+.pair--photos > .panel {
+    flex: var(--w) 1 0;
+}
+
+/* ------------------------------------------------------------
+   Carousel (Hailo): one image per slide. Slides sit in a row
+   you can swipe or scroll sideways; each one snaps into place.
+   The arrows and bars below move between them.
+   ------------------------------------------------------------ */
+
+.carousel {
+    gap: 16px;
+}
+
+.carousel-track {
+    display: flex;
+    list-style: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track:focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .carousel-track {
+        scroll-behavior: smooth;
+    }
+}
+
+.carousel-slide {
+    position: relative;     /* holds the prototype video and its play button */
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.carousel-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.carousel-count {
+    margin-right: 6px;
+    font-weight: 500;
+    color: var(--color-ink);
+    font-variant-numeric: tabular-nums;
+}
+
+.carousel-pager {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.carousel-bars {
+    display: flex;
+    margin-right: 16px;
+}
+
+/* Each bar is a button with a taller area to click than the line it shows */
+.carousel-bar {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    padding: 0 3px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.carousel-bar::before {
+    content: "";
+    width: 10px;
+    height: 2px;
+    border-radius: 1px;
+    background: #c4c4c4;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-bar[aria-current="true"]::before {
+    width: 28px;
+    background: var(--color-ink);
+}
+
+/* Arrows: white chevron in a black circle so they stand out from the page */
+.carousel-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color-ink);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-arrow:hover:not(:disabled) {
+    background: #3a3a3a;
+}
+
+.carousel-arrow:active:not(:disabled) {
+    transform: scale(0.94);
+}
+
+.carousel-arrow:focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+}
+
+/* First or last slide: the arrow that can't go further fades back */
+.carousel-arrow:disabled {
+    background: #e6e6e6;
+    color: #a3a3a3;
+    cursor: default;
+}
+
+.carousel-arrow path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Nudge: the first time a carousel comes into view, its slides shift
+   left to show the edge of the next one, then settle back. The page
+   script adds .is-nudging once and removes it when the movement ends. */
+.carousel-track.is-nudging > .carousel-slide {
+    animation: carousel-nudge 1.5s ease-in-out;
+}
+
+@keyframes carousel-nudge {
+    0%   { transform: translateX(0); }
+    35%  { transform: translateX(calc(-1 * clamp(56px, 8%, 112px))); }
+    60%  { transform: translateX(calc(-1 * clamp(56px, 8%, 112px))); }
+    100% { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel-bar::before,
+    .carousel-arrow {
+        transition: none;
+    }
+
+    .carousel-track.is-nudging > .carousel-slide {
+        animation: none;
+    }
+}
+
+/* ------------------------------------------------------------
+   Passenger quotes (Hailo)
+   ------------------------------------------------------------ */
+
+.quotes {
+    gap: 40px;
+}
+
+.quote-pair {
+    display: flex;
+    gap: 40px;
+}
+
+.quote--small {
+    flex: 1 1 0;
+    gap: 8px;
+    padding-left: 20px;
+    border-left: 2px solid var(--color-brand-hailo);
+}
+
+.quote--small blockquote {
+    font-size: 17px;
+    line-height: 28px;
+    color: var(--color-body);
+}
+
+/* More quotes: two at a time in a carousel under the lead quote */
+.carousel--quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.carousel--quotes .carousel-track:focus-visible {
+    outline-offset: 4px;
 }
 
 /* ------------------------------------------------------------
@@ -553,9 +783,9 @@ picture source {
 
 .video-prototype {
     left: 8.287%;
-    top: 8.366%;
+    top: 8.372%;
     width: 83.449%;
-    height: 83.191%;
+    height: 82.868%;
     border-radius: 1.373% / 2.316%;
     outline: 1px solid #c6c6c6;
     outline-offset: -1px;
@@ -586,6 +816,14 @@ picture source {
     justify-content: space-between;
     align-items: baseline;
     padding-top: 40px;
+}
+
+/* Small line under the footer saying how the site was made */
+.colophon {
+    padding-top: 80px;
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--color-secondary);
 }
 
 /* ------------------------------------------------------------
@@ -1040,18 +1278,82 @@ picture source {
         gap: 12px;
     }
 
+    .pair--photos {
+        flex-direction: column;
+    }
+
+    .breakout .pair--photos {
+        gap: 12px;
+    }
+
+    .pair--photos > .panel {
+        flex: none;
+    }
+
+    /* Apple Watch: trim the empty sides so the watches are bigger */
+    .panel--watch img {
+        aspect-ratio: 1100 / 760;
+        object-fit: cover;
+    }
+
+    .carousel {
+        gap: 12px;
+    }
+
+    .carousel-controls {
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    /* Image carousel runs edge to edge; its controls keep the text margins */
+    .breakout.carousel .carousel-controls {
+        padding: 0 24px;
+    }
+
+    .carousel--quotes {
+        gap: 20px;
+    }
+
+    .carousel-controls .caption {
+        padding: 0;
+        padding-top: 9px;
+    }
+
+    .carousel-count {
+        display: block;
+        margin: 0;
+    }
+
+    .carousel-bars {
+        display: none;
+    }
+
+    .carousel-arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .quotes {
+        gap: 28px;
+    }
+
+    .quote-pair {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .quote .caption {
+        padding: 0;
+    }
+
+    .quote--small {
+        padding-left: 16px;
+    }
+
     .play {
         padding: 10px 30px;
         font-size: 12px;
         line-height: 16px;
-    }
-
-    .video-prototype {
-        left: 4.103%;
-        top: 7.937%;
-        width: 91.795%;
-        height: 84.226%;
-        border-radius: 1.676% / 2.830%;
     }
 
     .video-lookup {
@@ -1066,6 +1368,10 @@ picture source {
         top: 6.643%;
         width: 71.410%;
         height: 86.714%;
+    }
+
+    .colophon {
+        padding-top: 48px;
     }
 
     .site-footer {
