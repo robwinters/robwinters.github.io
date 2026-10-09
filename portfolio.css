@@ -21,6 +21,7 @@
     --color-brand-trainline:#00b3a0;
     --color-brand-hedgehog: #305ff1;
     --color-brand-rowpal:   #2d56b8;
+    --color-brand-albatross:#563e88;
 
     --font-sans:            'Inter', system-ui, sans-serif;
     --font-serif:           'Newsreader', Georgia, serif;
@@ -250,6 +251,18 @@ a:hover {
 
 .career .role--plain {
     font-weight: 400;
+}
+
+/* Company and book links: black and underlined, not blue */
+.career a {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.career a:hover {
+    text-decoration-thickness: 2px;
 }
 
 .career .note {
