@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found — Rob Winters</title>
+    <script>
+        // GitHub Pages shows this page for any address that doesn't exist.
+        // If the address is one of the site's pages with a trailing slash,
+        // a capital letter or ".html" on the end, go straight to the right
+        // address. Anything after # (like #albatross) is kept.
+        (function () {
+            var pages = {
+                '': '/',
+                '/index': '/',
+                '/portfolio': '/portfolio',
+                '/hailo-tweets': '/hailo-tweets/'
+            };
+            var path = location.pathname.toLowerCase().replace(/\/+$/, '').replace(/\.html$/, '');
+            if (Object.prototype.hasOwnProperty.call(pages, path)) {
+                location.replace(pages[path] + location.search + location.hash);
+            }
+        })();
+    </script>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fffefa;
+            color: #1e1e1e;
+            font-family: 'Inter', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        main {
+            padding: 24px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0 0 12px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        p {
+            margin: 0;
+            font-size: 17px;
+            line-height: 28px;
+            color: #4a4a4a;
+        }
+        a {
+            color: #0095ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Page not found</h1>
+        <p>Try the <a href="/">home page</a> or the <a href="/portfolio">portfolio</a>.</p>
+    </main>
+</body>
+</html>
